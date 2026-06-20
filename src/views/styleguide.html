@@ -1,0 +1,176 @@
+<!DOCTYPE html>
+<html lang="ru">
+
+<head>
+  <meta charset="utf-8" />
+  <title>Starter</title>
+  @@include("./template/head.html")
+</head>
+
+<body>
+  @@include("./template/header.html")
+  <div class="wrapper">
+
+    <!-- styleguide.html - Страница демонстрации типографики и кнопок -->
+    <div class="container" style="padding: 40px 0;">
+      <h1 style="margin-bottom: 40px;">Styleguide — MOVLY</h1>
+
+      <!-- Typography -->
+      <section style="margin-bottom: 60px;">
+        <h2 style="margin-bottom: 30px; border-bottom: 2px solid var(--color-bg-3rd); padding-bottom: 10px;">Typography
+        </h2>
+
+        <div style="margin-bottom: 30px;">
+          <h1>Заголовок H1 — 56px Web / 36px Mob</h1>
+          <p style="color: var(--color-body-txt); font-size: var(--font-size-body-mob);">H1 WEB — 56px, H1 MOB — 36px
+          </p>
+        </div>
+
+        <div style="margin-bottom: 30px;">
+          <h2>Заголовок H2 — 40px Web / 28px Mob</h2>
+          <p style="color: var(--color-body-txt); font-size: var(--font-size-body-mob);">H2 WEB — 40px, H2 MOB — 28px
+          </p>
+        </div>
+
+        <div style="margin-bottom: 30px;">
+          <h3>Заголовок H3 — 24px Web / 20px Mob</h3>
+          <p style="color: var(--color-body-txt); font-size: var(--font-size-body-mob);">H3 WEB — 24px, H3 MOB — 20px
+          </p>
+        </div>
+
+        <div style="margin-bottom: 30px;">
+          <p class="text-large">Text Large — 20px Web / 18px Mob</p>
+          <p style="color: var(--color-body-txt); font-size: var(--font-size-body-mob);">Txt large Web — 20px, Txt large
+            Mob
+            — 18px</p>
+        </div>
+
+        <div style="margin-bottom: 30px;">
+          <p class="text-medium">Text Medium — 18px Web / 16px Mob</p>
+          <p style="color: var(--color-body-txt); font-size: var(--font-size-body-mob);">Txt medium Web — 18px, Txt
+            medium
+            Mob — 16px</p>
+        </div>
+
+        <div style="margin-bottom: 30px;">
+          <p class="text-body">Text Body — 16px Web / 14px Mob</p>
+          <p style="color: var(--color-body-txt); font-size: var(--font-size-body-mob);">Txt Body Descr Web — 16px, Txt
+            Body
+            Descr Mob — 14px</p>
+        </div>
+      </section>
+
+      <!-- Colors -->
+      <section style="margin-bottom: 60px;">
+        <h2 style="margin-bottom: 30px; border-bottom: 2px solid var(--color-bg-3rd); padding-bottom: 10px;">Colors</h2>
+
+        <div style="display: grid; grid-template-columns: repeat(auto-fill, minmax(200px, 1fr)); gap: 20px;">
+          <div>
+            <div style="background: var(--color-bg-main); height: 80px; border-radius: 8px; border: 1px solid #ddd;">
+            </div>
+            <p style="font-size: 12px; margin-top: 6px;">Background Main<br>#eff4f9</p>
+          </div>
+          <div>
+            <div style="background: var(--color-accent); height: 80px; border-radius: 8px;"></div>
+            <p style="font-size: 12px; margin-top: 6px;">Accent<br>#2161ab</p>
+          </div>
+          <div>
+            <div style="background: var(--color-bg-2nd); height: 80px; border-radius: 8px; border: 1px solid #ddd;">
+            </div>
+            <p style="font-size: 12px; margin-top: 6px;">Background 2nd<br>#ffffff</p>
+          </div>
+          <div>
+            <div style="background: var(--color-bg-3rd); height: 80px; border-radius: 8px;"></div>
+            <p style="font-size: 12px; margin-top: 6px;">Background 3rd<br>#e6eeff</p>
+          </div>
+          <div>
+            <div style="background: var(--color-bg-4th); height: 80px; border-radius: 8px;"></div>
+            <p style="font-size: 12px; margin-top: 6px;">Background 4th<br>#f0f5ff</p>
+          </div>
+          <div>
+            <div style="background: var(--color-inactive); height: 80px; border-radius: 8px;"></div>
+            <p style="font-size: 12px; margin-top: 6px;">Inactive<br>#bdd0ea</p>
+          </div>
+          <div>
+            <div style="background: var(--color-body-txt); height: 80px; border-radius: 8px;"></div>
+            <p style="font-size: 12px; margin-top: 6px;">Body Txts<br>#666d73</p>
+          </div>
+          <div>
+            <div style="background: var(--color-h-txt); height: 80px; border-radius: 8px;"></div>
+            <p style="font-size: 12px; margin-top: 6px;">H Txts<br>#2f2f31</p>
+          </div>
+        </div>
+      </section>
+
+      <!-- Buttons -->
+      <section style="margin-bottom: 60px;">
+        <h2 style="margin-bottom: 30px; border-bottom: 2px solid var(--color-bg-3rd); padding-bottom: 10px;">Buttons
+        </h2>
+
+        <div style="display: flex; flex-wrap: wrap; gap: 20px; align-items: center; margin-bottom: 30px;">
+          <button class="btn btn--primary">Узнать больше</button>
+          <button class="btn btn--secondary">Узнать больше</button>
+          <button class="btn btn--outline">Узнать больше</button>
+          <button class="btn btn--white">Узнать больше</button>
+        </div>
+
+        <div style="display: flex; flex-wrap: wrap; gap: 20px; align-items: center; margin-bottom: 30px;">
+          <button class="btn btn--primary btn--small">ОТПРАВИТЬ</button>
+          <button class="btn btn--secondary btn--small">ОТПРАВИТЬ</button>
+          <button class="btn btn--outline btn--small">ОТПРАВИТЬ</button>
+          <button class="btn btn--white btn--small">ОТПРАВИТЬ</button>
+        </div>
+
+        <div style="display: flex; flex-wrap: wrap; gap: 20px; align-items: center; margin-bottom: 30px;">
+          <button class="btn btn--primary btn--large">Записаться на Консультацию</button>
+          <button class="btn btn--secondary btn--large">Записаться на Консультацию</button>
+        </div>
+
+        <div style="display: flex; flex-wrap: wrap; gap: 20px; align-items: center;">
+          <button class="btn btn--primary btn--full" style="max-width: 300px;">ОТПРАВИТЬ</button>
+          <button class="btn btn--secondary btn--full" style="max-width: 300px;">ОТПРАВИТЬ</button>
+        </div>
+      </section>
+
+      <!-- Cards Demo -->
+      <section style="margin-bottom: 60px;">
+        <h2 style="margin-bottom: 30px; border-bottom: 2px solid var(--color-bg-3rd); padding-bottom: 10px;">Cards</h2>
+
+        <div style="display: grid; grid-template-columns: repeat(3, 1fr); gap: 20px;">
+          <div class="card">
+            <div class="card__icon">📋</div>
+            <h3 class="card__title">Card Title</h3>
+            <p class="card__text">Card description text goes here with some content example.</p>
+          </div>
+          <div class="card card--dark">
+            <div class="card__icon">📋</div>
+            <h3 class="card__title">Dark Card</h3>
+            <p class="card__text">Card description text goes here with some content example.</p>
+          </div>
+          <div class="card">
+            <div class="placeholder-img" style="aspect-ratio: 16/9; min-height: 100px; margin-bottom: 16px;">Image</div>
+            <h3 class="card__title">Card with Image</h3>
+            <p class="card__text">Card description text goes here with some content example.</p>
+          </div>
+        </div>
+      </section>
+
+      <!-- Placeholder Images -->
+      <section style="margin-bottom: 60px;">
+        <h2 style="margin-bottom: 30px; border-bottom: 2px solid var(--color-bg-3rd); padding-bottom: 10px;">Placeholder
+          Images</h2>
+
+        <div style="display: grid; grid-template-columns: repeat(3, 1fr); gap: 20px;">
+          <div class="placeholder-img">4:3</div>
+          <div class="placeholder-img placeholder-img--square">1:1</div>
+          <div class="placeholder-img placeholder-img--wide">16:9</div>
+          <div class="placeholder-img placeholder-img--circle" style="max-width: 200px;">Circle</div>
+        </div>
+      </section>
+    </div>
+  </div>
+
+  @@include("./template/footer.html") @@include("./template/scripts.html")
+</body>
+
+</html>

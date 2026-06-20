@@ -1,0 +1,8 @@
+@use 'vendor/normalize'; // подключение normalize.css
+@use 'helpers' as helpers; // утилиты типа быстрых отступов
+@use 'vendor/libs' as libs; // подключение сторонних библиотек типа swiper, slick и т.д.
+@use 'fonts' as fonts; // подключение шрифтов
+
+@use 'blocks/blocks'; // блоки БЭМ
+@use 'main'; // просто css не относящийся к БЭМ
+@use 'responsive/response.scss'; // медиа-запросы
