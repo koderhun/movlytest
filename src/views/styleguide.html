@@ -10,202 +10,169 @@
 <body>
   @@include("./template/header.html")
   <div class="wrapper">
-    <div class="styleguide">
+    <section class="ui-kit">
+      <div class="container">
+        <h1 class="ui-kit__title">UI Kit — Movly</h1>
 
-      <section class="styleguide__section">
-        <h1 class="styleguide__title">Colors</h1>
-        <div class="color-grid">
-          <div class="color-item">
-            <div class="color-item__swatch color-item__swatch--main"></div>
-            <div class="color-item__label">01 Background Main</div>
-            <div class="color-item__code">rgba(224, 229, 240, 1)</div>
-            <div class="color-item__desc">Background page, inputs bg</div>
-          </div>
-          <div class="color-item">
-            <div class="color-item__swatch color-item__swatch--accent"></div>
-            <div class="color-item__label">02 Accent</div>
-            <div class="color-item__code">rgba(13, 57, 171, 1)</div>
-            <div class="color-item__desc">Accent - links hover + icons</div>
-          </div>
-          <div class="color-item">
-            <div class="color-item__swatch color-item__swatch--bg2"></div>
-            <div class="color-item__label">03 Background 2nd</div>
-            <div class="color-item__code">rgba(255, 255, 255, 1)</div>
-            <div class="color-item__desc">Background Cards</div>
-          </div>
-          <div class="color-item">
-            <div class="color-item__swatch color-item__swatch--bg3"></div>
-            <div class="color-item__label">04 Background 3rd</div>
-            <div class="color-item__code">rgba(230, 238, 255, 1)</div>
-            <div class="color-item__desc">Background Cards, del time, def map dots, hover, inactive form btn</div>
-          </div>
-          <div class="color-item">
-            <div class="color-item__swatch color-item__swatch--bg4"></div>
-            <div class="color-item__label">05 Background 4th</div>
-            <div class="color-item__code">rgba(240, 245, 255, 1)</div>
-            <div class="color-item__desc">Background Cards, del time, def map dots, hover, inactive form btn</div>
-          </div>
-          <div class="color-item">
-            <div class="color-item__swatch color-item__swatch--bg5"></div>
-            <div class="color-item__label">06 Background 5th</div>
-            <div class="color-item__code">Linear gradient</div>
-            <div class="color-item__desc">Linear gradient - H+BD Frames</div>
-          </div>
-          <div class="color-item">
-            <div class="color-item__swatch color-item__swatch--inactive"></div>
-            <div class="color-item__label">07 Inactive</div>
-            <div class="color-item__code">rgba(188, 222, 160, 1)</div>
-            <div class="color-item__desc">Icons def, active map data, input ts inactive</div>
-          </div>
-          <div class="color-item">
-            <div class="color-item__swatch color-item__swatch--body-txt"></div>
-            <div class="color-item__label">08 Body Txts</div>
-            <div class="color-item__code">rgba(102, 102, 115, 1)</div>
-            <div class="color-item__desc">Descr + arrow FAQ</div>
-          </div>
-          <div class="color-item">
-            <div class="color-item__swatch color-item__swatch--h-txt"></div>
-            <div class="color-item__label">09 H Txts</div>
-            <div class="color-item__code">rgba(26, 26, 46, 1)</div>
-            <div class="color-item__desc">Vector</div>
-          </div>
-          <div class="color-item">
-            <div class="color-item__swatch color-item__swatch--hover-txt"></div>
-            <div class="color-item__label">10 H1 Txt + Def H2 (hover+ing block)</div>
-            <div class="color-item__code">rgba(122, 139, 163, 1)</div>
-            <div class="color-item__desc">Vector</div>
-          </div>
-        </div>
-      </section>
-
-      <section class="styleguide__section">
-        <h1 class="styleguide__title">Buttons</h1>
-        <div class="button-grid">
-          <div class="button-group">
-            <button class="btn btn--primary">
-              <span class="btn__text">Узнать больше</span>
-              <svg class="btn__icon" width="20" height="20" viewBox="0 0 20 20" fill="none">
-                <path d="M7 10h6m-3-3l3 3-3 3" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/>
-              </svg>
-            </button>
-          </div>
-          <div class="button-group">
-            <button class="btn btn--secondary">
-              <span class="btn__text">Узнать больше</span>
-              <svg class="btn__icon" width="20" height="20" viewBox="0 0 20 20" fill="none">
-                <path d="M7 10h6m-3-3l3 3-3 3" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/>
-              </svg>
-            </button>
-          </div>
-
-          <div class="button-group">
-            <button class="btn btn--outline-primary">
-              <span class="btn__text">ОТПРАВИТЬ</span>
-            </button>
-          </div>
-          <div class="button-group">
-            <button class="btn btn--outline-primary">
-              <span class="btn__text">ОТПРАВИТЬ</span>
-            </button>
-          </div>
-
-          <div class="button-group btn--primary-full">
-            <button class="btn btn--primary-full">
-              <span class="btn__text">ОТПРАВИТЬ</span>
-            </button>
-          </div>
-
-          <div class="button-group">
-            <button class="btn btn--primary">
-              <span class="btn__text">Записаться на Консультацию</span>
-              <svg class="btn__icon" width="20" height="20" viewBox="0 0 20 20" fill="none">
-                <path d="M7 10h6m-3-3l3 3-3 3" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/>
-              </svg>
-            </button>
-          </div>
-          <div class="button-group">
-            <button class="btn btn--secondary">
-              <span class="btn__text">Записаться на Консультацию</span>
-              <svg class="btn__icon" width="20" height="20" viewBox="0 0 20 20" fill="none">
-                <path d="M7 10h6m-3-3l3 3-3 3" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/>
-              </svg>
-            </button>
-          </div>
-        </div>
-      </section>
-
-      <section class="styleguide__section">
-        <h1 class="styleguide__title">Fonts</h1>
-        <div class="typography">
-          <div class="typography__row">
-            <div class="typography__item">
-              <div class="typography__heading-web">H1 WEB</div>
-              <div class="typography__meta">48px</div>
+        <!-- Typography -->
+        <div class="ui-kit__section">
+          <h2 class="ui-kit__section-title">Типография</h2>
+          <div class="ui-kit__grid ui-kit__grid--2col">
+            <div class="ui-kit__item">
+              <span class="ui-kit__label">H1 / .h1</span>
+              <h1 class="h1">Заголовок H1</h1>
             </div>
-            <div class="typography__item">
-              <div class="typography__heading-mob">H1 MOB</div>
-              <div class="typography__meta">32px</div>
+            <div class="ui-kit__item">
+              <span class="ui-kit__label">H2 / .h2</span>
+              <h2 class="h2">Заголовок H2</h2>
             </div>
-          </div>
-
-          <div class="typography__row">
-            <div class="typography__item">
-              <div class="typography__h2-web">H2 WEB</div>
-              <div class="typography__meta">36px</div>
+            <div class="ui-kit__item">
+              <span class="ui-kit__label">H3 / .h3</span>
+              <h3 class="h3">Заголовок H3</h3>
             </div>
-            <div class="typography__item">
-              <div class="typography__h2-mob">H2 MOB</div>
-              <div class="typography__meta">28px</div>
+            <div class="ui-kit__item">
+              <span class="ui-kit__label">.text-large</span>
+              <p class="text-large">Крупный текст для описаний</p>
             </div>
-          </div>
-
-          <div class="typography__row">
-            <div class="typography__item">
-              <div class="typography__h3-web">H3 WEB</div>
-              <div class="typography__meta">24px</div>
+            <div class="ui-kit__item">
+              <span class="ui-kit__label">.text-medium</span>
+              <p class="text-medium">Средний текст для подзаголовков</p>
             </div>
-            <div class="typography__item">
-              <div class="typography__h3-mob">H3 MOB</div>
-              <div class="typography__meta">20px</div>
-            </div>
-          </div>
-
-          <div class="typography__row">
-            <div class="typography__item">
-              <div class="typography__txt-large-web">Txt large Web</div>
-              <div class="typography__meta">18px</div>
-            </div>
-            <div class="typography__item">
-              <div class="typography__txt-large-mob">Txt large Mob</div>
-              <div class="typography__meta">18px</div>
-            </div>
-          </div>
-
-          <div class="typography__row">
-            <div class="typography__item">
-              <div class="typography__txt-medium-web">Txt medium Web</div>
-              <div class="typography__meta">16px</div>
-            </div>
-            <div class="typography__item">
-              <div class="typography__txt-medium-mob">Txt medium Mob</div>
-              <div class="typography__meta">16px</div>
-            </div>
-          </div>
-
-          <div class="typography__row">
-            <div class="typography__item">
-              <div class="typography__txt-body-web">Txt Body Descr Web</div>
-              <div class="typography__meta">14px</div>
-            </div>
-            <div class="typography__item">
-              <div class="typography__txt-body-mob">Txt Body Descr Mob</div>
-              <div class="typography__meta">14px</div>
+            <div class="ui-kit__item">
+              <span class="ui-kit__label">.text-body</span>
+              <p class="text-body">Основной текст для описаний и параграфов. Длинный текст для демонстрации межстрочного
+                интервала и удобочитаемости.</p>
             </div>
           </div>
         </div>
-      </section>
 
-    </div>
+        <!-- Colors -->
+        <div class="ui-kit__section">
+          <h2 class="ui-kit__section-title">Цветовая палитра</h2>
+          <div class="ui-kit__palette">
+            <div class="ui-kit__swatch">
+              <div class="ui-kit__swatch-preview" style="background: var(--color-bg-main);"></div>
+              <span class="ui-kit__swatch-name">--color-bg-main</span>
+              <span class="ui-kit__swatch-value">rgba(239, 244, 249, 1)</span>
+            </div>
+            <div class="ui-kit__swatch">
+              <div class="ui-kit__swatch-preview" style="background: var(--color-accent);"></div>
+              <span class="ui-kit__swatch-name">--color-accent</span>
+              <span class="ui-kit__swatch-value">rgba(33, 97, 171, 1)</span>
+            </div>
+            <div class="ui-kit__swatch">
+              <div class="ui-kit__swatch-preview" style="background: var(--color-bg-card); border: 1px solid #ddd;">
+              </div>
+              <span class="ui-kit__swatch-name">--color-bg-card</span>
+              <span class="ui-kit__swatch-value">rgba(255, 255, 255, 1)</span>
+            </div>
+            <div class="ui-kit__swatch">
+              <div class="ui-kit__swatch-preview" style="background: var(--color-bg-third);"></div>
+              <span class="ui-kit__swatch-name">--color-bg-third</span>
+              <span class="ui-kit__swatch-value">rgba(230, 238, 255, 1)</span>
+            </div>
+            <div class="ui-kit__swatch">
+              <div class="ui-kit__swatch-preview" style="background: var(--color-bg-icon);"></div>
+              <span class="ui-kit__swatch-name">--color-bg-icon</span>
+              <span class="ui-kit__swatch-value">rgba(240, 245, 255, 1)</span>
+            </div>
+            <div class="ui-kit__swatch">
+              <div class="ui-kit__swatch-preview" style="background: var(--color-inactive);"></div>
+              <span class="ui-kit__swatch-name">--color-inactive</span>
+              <span class="ui-kit__swatch-value">rgba(189, 208, 234, 1)</span>
+            </div>
+            <div class="ui-kit__swatch">
+              <div class="ui-kit__swatch-preview" style="background: var(--color-body-text);"></div>
+              <span class="ui-kit__swatch-name">--color-body-text</span>
+              <span class="ui-kit__swatch-value">rgba(102, 109, 115, 1)</span>
+            </div>
+            <div class="ui-kit__swatch">
+              <div class="ui-kit__swatch-preview" style="background: var(--color-heading);"></div>
+              <span class="ui-kit__swatch-name">--color-heading</span>
+              <span class="ui-kit__swatch-value">rgba(47, 47, 49, 1)</span>
+            </div>
+          </div>
+        </div>
+
+        <!-- Buttons -->
+        <div class="ui-kit__section">
+          <h2 class="ui-kit__section-title">Кнопки</h2>
+          <div class="ui-kit__grid ui-kit__grid--3col">
+            <div class="ui-kit__item">
+              <span class="ui-kit__label">.btn--primary</span>
+              <button class="btn btn--primary">Узнать больше</button>
+            </div>
+            <div class="ui-kit__item">
+              <span class="ui-kit__label">.btn--secondary</span>
+              <button class="btn btn--secondary">Узнать больше</button>
+            </div>
+            <div class="ui-kit__item">
+              <span class="ui-kit__label">.btn--outline</span>
+              <button class="btn btn--outline">Узнать больше</button>
+            </div>
+            <div class="ui-kit__item">
+              <span class="ui-kit__label">.btn--ghost</span>
+              <button class="btn btn--ghost">Узнать больше</button>
+            </div>
+            <div class="ui-kit__item">
+              <span class="ui-kit__label">.btn--white</span>
+              <button class="btn btn--white">Узнать больше</button>
+            </div>
+            <div class="ui-kit__item">
+              <span class="ui-kit__label">.btn--primary .btn--large</span>
+              <button class="btn btn--primary btn--large">ОТПРАВИТЬ</button>
+            </div>
+            <div class="ui-kit__item">
+              <span class="ui-kit__label">.btn--primary</span>
+              <button class="btn btn--primary">ОТПРАВИТЬ</button>
+            </div>
+            <div class="ui-kit__item">
+              <span class="ui-kit__label">.btn--primary .btn--small</span>
+              <button class="btn btn--primary btn--small">ОТПРАВИТЬ</button>
+            </div>
+            <div class="ui-kit__item">
+              <span class="ui-kit__label">.btn--primary .btn--icon</span>
+              <button class="btn btn--primary btn--icon">
+                <i class="fas fa-arrow-right"></i>
+              </button>
+            </div>
+            <div class="ui-kit__item">
+              <span class="ui-kit__label">.btn--primary + иконка</span>
+              <button class="btn btn--primary">
+                <i class="fas fa-pen"></i>
+                Записаться на Консультацию
+              </button>
+            </div>
+            <div class="ui-kit__item">
+              <span class="ui-kit__label">.btn--outline + иконка</span>
+              <button class="btn btn--outline">
+                <i class="fas fa-calendar-check"></i>
+                Записаться на Консультацию
+              </button>
+            </div>
+            <div class="ui-kit__item">
+              <span class="ui-kit__label">.btn--secondary + иконка</span>
+              <button class="btn btn--secondary">
+                <i class="fas fa-phone"></i>
+                Записаться на Консультацию
+              </button>
+            </div>
+            <div class="ui-kit__item">
+              <span class="ui-kit__label">.btn--primary .btn--full</span>
+              <button class="btn btn--primary btn--full">ОТПРАВИТЬ</button>
+            </div>
+            <div class="ui-kit__item">
+              <span class="ui-kit__label">.btn--primary disabled</span>
+              <button class="btn btn--primary" disabled>Узнать больше</button>
+            </div>
+            <div class="ui-kit__item">
+              <span class="ui-kit__label">.btn--secondary disabled</span>
+              <button class="btn btn--secondary" disabled>Узнать больше</button>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
   </div>
 
   @@include("./template/footer.html")

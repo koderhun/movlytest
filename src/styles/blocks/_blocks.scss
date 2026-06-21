@@ -1,1 +1,96 @@
 // блоки бэм
+.btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 10px;
+  padding: 14px 32px;
+  border: none;
+  border-radius: 12px;
+  font-family: 'Inter', sans-serif;
+  font-size: 16px;
+  font-weight: 600;
+  cursor: pointer;
+  transition: all 0.25s ease;
+  text-decoration: none;
+  width: fit-content;
+
+  &--primary {
+    background: var(--color-accent);
+    color: #ffffff;
+
+    &:hover {
+      background: var(--color-accent-hover);
+      transform: translateY(-2px);
+      box-shadow: 0 8px 24px var(--color-shadow-hover);
+    }
+  }
+
+  &--secondary {
+    background: var(--color-bg-third);
+    color: var(--color-accent);
+
+    &:hover {
+      background: var(--color-bg-third-hover);
+      transform: translateY(-2px);
+    }
+  }
+
+  &--outline {
+    background: transparent;
+    color: var(--color-accent);
+    border: 2px solid var(--color-accent);
+
+    &:hover {
+      background: var(--color-accent);
+      color: var(--color-outline-hover);
+      transform: translateY(-2px);
+    }
+  }
+
+  &--ghost {
+    background: transparent;
+    color: var(--color-body-text);
+
+    &:hover {
+      background: var(--color-bg-main-hover);
+      color: var(--color-heading);
+    }
+  }
+
+  &--white {
+    background: #ffffff;
+    color: var(--color-accent);
+
+    &:hover {
+      background: var(--color-white-hover);
+      transform: translateY(-2px);
+    }
+  }
+
+  &--large {
+    padding: 18px 40px;
+    font-size: 18px;
+  }
+
+  &--small {
+    padding: 10px 20px;
+    font-size: 14px;
+    border-radius: 8px;
+  }
+
+  &--full {
+    width: 100%;
+    justify-content: center;
+  }
+
+  &--icon {
+    padding: 14px 18px;
+  }
+
+  &:disabled {
+    opacity: 0.5;
+    cursor: not-allowed;
+    transform: none !important;
+  }
+}
