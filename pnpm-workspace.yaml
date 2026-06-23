@@ -8,4 +8,5 @@ allowBuilds:
   mozjpeg: true
   optipng-bin: true
   pngquant-bin: true
+  sharp: true
   zopflipng-bin: true
