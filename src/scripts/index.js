@@ -92,3 +92,42 @@
     initSwiper()
   }
 })()
+
+// header sticky
+;(function () {
+  'use strict'
+
+  const header = document.querySelector('.header')
+
+  if (!header) return
+
+  let lastScrollY = window.scrollY
+  let ticking = false
+
+  const updateHeader = () => {
+    const currentScrollY = window.scrollY
+    const scrollThreshold = 50
+
+    if (currentScrollY > scrollThreshold) {
+      header.classList.add('header--scrolled')
+    } else {
+      header.classList.remove('header--scrolled')
+    }
+
+    lastScrollY = currentScrollY
+    ticking = false
+  }
+
+  const onScroll = () => {
+    if (!ticking) {
+      window.requestAnimationFrame(() => {
+        updateHeader()
+      })
+      ticking = true
+    }
+  }
+
+  window.addEventListener('scroll', onScroll, {passive: true})
+
+  updateHeader()
+})()
