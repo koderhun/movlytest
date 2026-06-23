@@ -1,23 +1,23 @@
-'use strict';
+'use strict'
 
-import { paths } from '../gulpfile.babel';
-import webpack from 'webpack';
-import webpackStream from 'webpack-stream';
-import gulp from 'gulp';
-import gulpif from 'gulp-if';
-import rename from 'gulp-rename';
-import browsersync from 'browser-sync';
-import debug from 'gulp-debug';
-import yargs from 'yargs';
+import {paths} from '../gulpfile.babel'
+import webpack from 'webpack'
+import webpackStream from 'webpack-stream'
+import gulp from 'gulp'
+import gulpif from 'gulp-if'
+import rename from 'gulp-rename'
+import browsersync from 'browser-sync'
+import debug from 'gulp-debug'
+import yargs from 'yargs'
 
 const webpackConfig = require('../webpack.config.js'),
   argv = yargs.argv,
-  production = !!argv.production;
+  production = !!argv.production
 
-webpackConfig.mode = production ? 'production' : 'development';
-webpackConfig.devtool = production ? false : 'source-map';
+webpackConfig.mode = production ? 'production' : 'development'
+webpackConfig.devtool = production ? false : 'source-map'
 
-gulp.task('scripts', () => {
+gulp.task('myscripts', () => {
   return gulp
     .src(paths.scripts.src)
     .pipe(webpackStream(webpackConfig), webpack)
@@ -35,5 +35,18 @@ gulp.task('scripts', () => {
         title: 'JS files',
       }),
     )
-    .on('end', browsersync.reload);
-});
+    .on('end', browsersync.reload)
+})
+
+gulp.task('vendor', () => {
+  return gulp
+    .src('./src/scripts/vendor.js')
+    .pipe(gulp.dest(paths.scripts.dist))
+    .pipe(
+      debug({
+        title: 'Fonts',
+      }),
+    )
+})
+
+gulp.task('scripts', gulp.series('myscripts', 'vendor'))
