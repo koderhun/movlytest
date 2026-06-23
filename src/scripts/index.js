@@ -18,24 +18,26 @@
       // Получаем активный слайд
       const activeSlide = swiperInstance.slides[swiperInstance.activeIndex]
 
+      const $banerContainer = document.querySelector('.baner__container')
+
       if (activeSlide) {
         // Читаем data-index из активного слайда
         const dataIndex = activeSlide.getAttribute('data-index')
 
         if (dataIndex !== null) {
           // Записываем в body
-          document.body.setAttribute('data-active-slide', dataIndex)
+          $banerContainer.setAttribute('data-active-slide', dataIndex)
 
           // Также можно добавить класс для стилизации
           // Удаляем старые классы
-          document.body.classList.forEach((className) => {
+          $banerContainer.classList.forEach((className) => {
             if (className.startsWith('slide-')) {
-              document.body.classList.remove(className)
+              $banerContainer.classList.remove(className)
             }
           })
 
           // Добавляем новый класс
-          document.body.classList.add(`slide-${dataIndex}`)
+          $banerContainer.classList.add(`slide-${dataIndex}`)
 
           console.log(`Активный слайд: ${dataIndex}`) // Для отладки
         }
@@ -48,6 +50,11 @@
       initialSlide: 2,
       spaceBetween: 8,
       speed: 600,
+      autoplay: {
+        delay: 3000,
+        disableOnInteraction: false,
+        pauseOnMouseEnter: true,
+      },
 
       navigation: {
         nextEl: '.slider-section__button--next',

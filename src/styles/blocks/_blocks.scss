@@ -1,5 +1,38 @@
 $img: '../images/';
 
+.baner {
+  &__container {
+    &.slide-0,
+    &.slide-1,
+    &.slide-2,
+    &.slide-3,
+    &.slide-4,
+    &.slide-5 {
+      background-color: #fff;
+      background-position: center;
+      background-size: 100%;
+      background-repeat: no-repeat;
+      transition: var(--transition-base);
+    }
+  }
+}
+
+.slide-0 {
+  background-image: url($img + 'netherlands-bg.webp');
+}
+.slide-1 {
+  background-image: url($img + 'uk-bg.webp');
+}
+.slide-2 {
+  background-image: url($img + 'france-bg.webp');
+}
+.slide-3 {
+  background-image: url($img + 'portugale-bg.webp');
+}
+.slide-4 {
+  background-image: url($img + 'spain-bg.webp');
+}
+
 .slider1 {
   padding-top: 44px;
   padding-bottom: 0;
