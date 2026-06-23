@@ -10,7 +10,6 @@ gulp.task('predeploy', () => {
     .src(paths.deploy.src)
     .pipe(
       ghPages({
-        remoteUrl: 'https://github.com/koderhun/movlytest.git',
         branch: 'gh-pages',
         cacheDir: '.publish',
       }),
