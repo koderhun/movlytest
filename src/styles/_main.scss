@@ -364,10 +364,6 @@ img {
   }
 }
 
-.slider1 {
-  height: 454px;
-}
-
 .about {
   margin-top: 30px;
 
@@ -862,6 +858,14 @@ img {
   background-position: center;
   background-repeat: no-repeat;
   background-size: contain;
+
+  &--local {
+    background-image: url($img + 'local-gray.svg');
+
+    &.active {
+      background-image: url($img + 'local-blue.svg');
+    }
+  }
 }
 
 .faq {
