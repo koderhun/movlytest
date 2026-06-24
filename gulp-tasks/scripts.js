@@ -9,26 +9,17 @@ import rename from 'gulp-rename'
 import browsersync from 'browser-sync'
 import debug from 'gulp-debug'
 import yargs from 'yargs'
+import concat from 'gulp-concat'
+import terser from 'gulp-terser'
 
-const webpackConfig = require('../webpack.config.js'),
-  argv = yargs.argv,
-  production = !!argv.production
-
-webpackConfig.mode = production ? 'production' : 'development'
-webpackConfig.devtool = production ? false : 'source-map'
-
-gulp.task('scripts', () => {
+gulp.task('bundle', () => {
   return gulp
-    .src(paths.scripts.src)
-    .pipe(webpackStream(webpackConfig), webpack)
-    .pipe(
-      gulpif(
-        production,
-        rename({
-          suffix: '.min',
-        }),
-      ),
-    )
+    .src([
+      './node_modules/jquery/dist/jquery.min.js',
+      './node_modules/swiper/swiper-bundle.min.js',
+    ])
+    .pipe(concat('bundle.min.js'))
+    .pipe(terser())
     .pipe(gulp.dest(paths.scripts.dist))
     .pipe(
       debug({
@@ -38,29 +29,18 @@ gulp.task('scripts', () => {
     .on('end', browsersync.reload)
 })
 
-gulp.task('vendor', () => {
-  const vendorWebpackConfig = {
-    ...webpackConfig,
-    entry: paths.scripts.vendor,
-    output: {
-      ...webpackConfig.output,
-      filename: 'vendor.min.js',
-    },
-    optimization: {
-      ...webpackConfig.optimization,
-      splitChunks: false,
-      minimize: true,
-    },
-  }
-
-  return gulp
-    .src(paths.scripts.vendor)
-    .pipe(webpackStream(vendorWebpackConfig, webpack))
-    .pipe(gulp.dest(paths.scripts.dist))
-    .pipe(
-      debug({
-        title: 'Vendor JS',
-      }),
-    )
-    .on('end', browsersync.reload)
+gulp.task('script-copy', () => {
+  return (
+    gulp
+      .src(paths.scripts.src)
+      // .pipe(terser())
+      .pipe(gulp.dest(paths.scripts.dist))
+      .pipe(
+        debug({
+          title: 'Copy Scripts',
+        }),
+      )
+  )
 })
+
+gulp.task('scripts', gulp.series('bundle', 'script-copy'))
