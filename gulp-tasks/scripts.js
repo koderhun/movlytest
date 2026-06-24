@@ -17,10 +17,18 @@ const webpackConfig = require('../webpack.config.js'),
 webpackConfig.mode = production ? 'production' : 'development'
 webpackConfig.devtool = production ? false : 'source-map'
 
-gulp.task('myscripts', () => {
+gulp.task('scripts', () => {
   return gulp
     .src(paths.scripts.src)
     .pipe(webpackStream(webpackConfig), webpack)
+    .pipe(
+      gulpif(
+        production,
+        rename({
+          suffix: '.min',
+        }),
+      ),
+    )
     .pipe(gulp.dest(paths.scripts.dist))
     .pipe(
       debug({
@@ -31,14 +39,28 @@ gulp.task('myscripts', () => {
 })
 
 gulp.task('vendor', () => {
+  const vendorWebpackConfig = {
+    ...webpackConfig,
+    entry: paths.scripts.vendor,
+    output: {
+      ...webpackConfig.output,
+      filename: 'vendor.min.js',
+    },
+    optimization: {
+      ...webpackConfig.optimization,
+      splitChunks: false,
+      minimize: true,
+    },
+  }
+
   return gulp
-    .src('./src/scripts/vendor.js')
+    .src(paths.scripts.vendor)
+    .pipe(webpackStream(vendorWebpackConfig, webpack))
     .pipe(gulp.dest(paths.scripts.dist))
     .pipe(
       debug({
-        title: 'Fonts',
+        title: 'Vendor JS',
       }),
     )
+    .on('end', browsersync.reload)
 })
-
-gulp.task('scripts', gulp.series('myscripts', 'vendor'))

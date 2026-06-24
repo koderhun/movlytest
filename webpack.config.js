@@ -16,7 +16,6 @@ module.exports = {
 
   entry: {
     app: paths.scripts.src,
-    vendor: path.resolve(__dirname, 'src/scripts/vendor.js'),
   },
 
   output: {
@@ -40,7 +39,6 @@ module.exports = {
 
   module: {
     rules: [
-      /** Babel **/
       {
         test: /\.m?js$/,
         exclude: /(node_modules|bower_components)/,
@@ -50,7 +48,6 @@ module.exports = {
             presets: ['@babel/preset-env'],
           },
         },
-        // npm install babel-loader @babel/core @babel/preset-env -D
       },
     ],
   },
