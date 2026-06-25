@@ -303,7 +303,7 @@ $img: '../images/';
 
     &__right {
       position: absolute;
-      top: 56px;
+      top: 100%;
       display: flex;
       flex-direction: column;
       justify-content: center;
@@ -311,7 +311,7 @@ $img: '../images/';
       gap: 64px;
       left: -24px;
       right: -24px;
-      padding: 24px;
+
       overflow: hidden;
       max-height: 0;
       opacity: 0;
@@ -330,10 +330,12 @@ $img: '../images/';
         0 8px 32px rgba(0, 0, 0, 0.12),
         inset 0 1px 0 rgba(255, 255, 255, 0.15);
       z-index: 100;
+      transition: var(--transition-base);
 
       &--open {
+        padding: 24px;
         max-height: 100vh;
-        opacity: 1;
+        opacity: 0.9;
         transform: translateY(0);
       }
 
@@ -373,8 +375,45 @@ $img: '../images/';
   }
 
   body.menu-open {
-    overflow: hidden;
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    overflow-y: scroll; /* Сохраняет полосу прокрутки */
+    width: 100%;
   }
+
+  .about {
+    padding-bottom: 12px;
+  }
+
+  .about__card {
+    min-height: 344px;
+  }
+
+  .about__card--image {
+    flex-direction: column;
+  }
+
+  .about__card--image .about__inner-content {
+    min-height: 300px;
+  }
+
+  .about__inner-image {
+    min-height: 328px;
+  }
+
+  .about__inner-content {
+    padding-bottom: 36px;
+    padding-left: 24px;
+    padding-right: 24px;
+  }
+
+  .about__image {
+    max-width: 100%;
+  }
+
   .about__title {
     font-size: 16px;
   }
@@ -421,30 +460,83 @@ $img: '../images/';
     gap: 12px;
   }
 
+  .about__card--intro {
+    padding: 48px 32px 48px 32px;
+    justify-content: flex-start;
+    min-height: 410px;
+  }
+
+  .about__card--intro .about__title {
+    max-width: 100%;
+  }
+
+  .baner__title {
+    font-size: 27px;
+    line-height: 30px;
+  }
+
+  .baner__text {
+    font-size: 20px;
+    line-height: 24px;
+  }
+
   /* Clients */
   .clients {
-    padding: 60px 0;
-
     &__title {
-      font-size: 32px;
+      font-size: 20px;
+      line-height: 28px;
       margin-bottom: 32px;
     }
 
     &__grid {
       grid-template-columns: 1fr;
-      gap: 16px;
+      gap: 12px;
     }
   }
 
-  .client-card {
-    padding: 24px;
+  .clients .container {
+    margin-top: 0;
+    padding-top: 56px;
+  }
 
-    &__title {
-      font-size: 16px;
+  .client-card {
+    padding: 8px;
+    display: flex;
+    border-radius: 24px;
+    flex-direction: column;
+
+    &:hover,
+    &:focus {
+      transform: none;
     }
-    &__desc {
-      font-size: 14px;
-    }
+  }
+
+  .client-card__desc {
+    padding: 34px 24px 36px 24px;
+    max-width: 100%;
+  }
+
+  .client-card__image {
+    display: block;
+    opacity: 1;
+    position: static;
+    order: -1;
+    transform: none;
+    width: 100%;
+    border-radius: 20px;
+    margin-bottom: 34px;
+    max-height: 314px;
+    object-fit: contain;
+  }
+
+  .client-card__title {
+    width: 100%;
+    padding: 0;
+    text-align: left;
+    font-size: 20px;
+    max-width: 100%;
+    padding-left: 24px;
+    padding-right: 24px;
   }
 
   /* Consultation */

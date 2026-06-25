@@ -46,6 +46,7 @@ body {
   color: var(--color-body-text);
   margin: 0;
   padding: 0;
+  font-size: 16px;
 }
 
 img {
@@ -289,7 +290,7 @@ h3 {
   border-radius: 64px;
   transition: var(--transition-base);
   background-color: var(--color-bg-third);
-  color: var(--color-body-text);
+  color: var(--color-heading);
 
   &:focus,
   &:hover {
@@ -404,7 +405,7 @@ h3 {
     font-weight: normal;
     color: var(--color-body-text);
     text-decoration: none;
-    transition: all 0.25s ease;
+    transition: var(--transition-base);
     padding: 0 20px;
 
     &::after {
@@ -415,20 +416,23 @@ h3 {
       height: 4px;
       border-radius: 100%;
       background: var(--color-accent);
-      transition: width 0.25s ease;
+      transition: var(--transition-base);
       left: 4px;
-      display: none;
+      display: block;
+      opacity: 0;
     }
 
     &:hover {
       color: var(--color-heading);
     }
 
+    &:hover,
+    &:focus,
     &--active {
       color: var(--color-heading);
 
       &::after {
-        display: block;
+        opacity: 1;
       }
     }
   }
