@@ -26,7 +26,7 @@ gulp.task('images', () => {
           jpegRecompress: false,
           mozjpeg: true,
           gifsicle: true,
-          svgo: true,
+          svgo: false,
           concurrent: 10,
           quiet: true, // defaults to false
         }),

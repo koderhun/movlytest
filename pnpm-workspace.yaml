@@ -1,12 +1,11 @@
 allowBuilds:
-  '@parcel/watcher': true
-  cwebp-bin: true
-  es5-ext: true
-  gifsicle: true
-  guetzli: true
-  jpeg-recompress-bin: true
-  mozjpeg: true
-  optipng-bin: true
-  pngquant-bin: true
-  sharp: true
-  zopflipng-bin: true
+  '@parcel/watcher': set this to true or false
+  cwebp-bin: set this to true or false
+  es5-ext: set this to true or false
+  gifsicle: set this to true or false
+  guetzli: set this to true or false
+  jpeg-recompress-bin: set this to true or false
+  mozjpeg: set this to true or false
+  optipng-bin: set this to true or false
+  pngquant-bin: set this to true or false
+  zopflipng-bin: set this to true or false
