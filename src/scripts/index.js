@@ -134,4 +134,26 @@ $(() => {
 
     updateHeader()
   }
+
+  const burger = document.querySelector('.header__burger')
+  const headerRight = document.querySelector('.header__right')
+
+  if (burger && headerRight) {
+    burger.addEventListener('click', () => {
+      const isExpanded = burger.getAttribute('aria-expanded') === 'true'
+      burger.setAttribute('aria-expanded', String(!isExpanded))
+      headerRight.classList.toggle('header__right--open', !isExpanded)
+      document.body.classList.toggle('menu-open', !isExpanded)
+    })
+
+    headerRight.querySelectorAll('.header__link').forEach((link) => {
+      link.addEventListener('click', () => {
+        burger.setAttribute('aria-expanded', 'false')
+        headerRight.classList.remove('header__right--open')
+        document.body.classList.remove('menu-open')
+      })
+    })
+  }
+
+  // акардион
 })

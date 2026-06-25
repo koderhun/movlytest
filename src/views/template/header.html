@@ -5,20 +5,23 @@
         <img src="./images/logo.svg" alt="Movly Logo" class="header__logo-image" />
       </a>
 
-      <button class="header__burger" aria-label="Меню" aria-expanded="false">
-        <span></span>
-        <span></span>
-        <span></span>
-      </button>
+      <button class="header__burger" aria-label="Меню" aria-expanded="false"></button>
 
-      <nav class="header__nav" role="navigation" aria-label="Главное меню">
-        <a href="#benefits" class="header__link header__link--active">О нас</a>
-        <a href="#audience" class="header__link">Европа</a>
-        <a href="#steps" class="header__link">США</a>
+      <div class="header__right">
+        <nav class="header__nav" role="navigation" aria-label="Главное меню">
+          <a href="#benefits" class="header__link header__link--active">О нас</a>
+          <a href="#audience" class="header__link">Европа</a>
+          <a href="#steps" class="header__link">США</a>
 
-      </nav>
+        </nav>
 
-      <a href="#feedback" title="Записаться на Консультацию " class="header-btn">
+        <a href="#feedback" title="Записаться на Консультацию " class="header-btn-normal">
+          <div class="header-btn-normal__content">Записаться на Консультацию </div>
+          <div class="header-btn-normal__image" aria="icon"></div>
+        </a>
+      </div>
+
+      <a href="#feedback" title="Записаться на Консультацию " class="header-btn header-btn--desktop">
         <div class="header-btn__content">Записаться на Консультацию </div>
         <div class="header-btn__image" aria="icon"></div>
       </a>
