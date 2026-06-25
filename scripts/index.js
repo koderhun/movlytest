@@ -51,7 +51,7 @@ $(() => {
       spaceBetween: 8,
       speed: 600,
       autoplay: {
-        delay: 3000,
+        delay: 9000,
         disableOnInteraction: false,
         pauseOnMouseEnter: true,
       },
