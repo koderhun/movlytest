@@ -375,6 +375,51 @@ $img: '../images/';
   body.menu-open {
     overflow: hidden;
   }
+  .about__title {
+    font-size: 16px;
+  }
+
+  .about--init {
+    padding-top: 64px;
+    margin-top: 0;
+    padding-bottom: 12px;
+  }
+
+  .about--init .about__card {
+    min-height: 0;
+    padding: 44px 32px 64px 32px;
+  }
+
+  .about__grid {
+    display: flex;
+    gap: 12px;
+    flex-direction: column;
+  }
+
+  .about--talk {
+    padding-bottom: 16px;
+    margin-top: 0;
+  }
+
+  .about--talk .about__card--intro {
+    padding: 34px 32px;
+
+    padding-bottom: 180px;
+    background-position: bottom -60px right;
+  }
+
+  .about--talk .about__card--intro .about__title {
+    max-width: 100%;
+  }
+
+  .about__card--intro .about__text {
+    max-width: 100%;
+    padding-top: 34px;
+  }
+
+  .about--talk .about__grid {
+    gap: 12px;
+  }
 
   /* Clients */
   .clients {
@@ -404,11 +449,6 @@ $img: '../images/';
 
   /* Consultation */
   .consultation {
-    padding: 44px 0;
-
-    &__title {
-      font-size: 20px;
-    }
     &__desc {
       font-size: 16px;
       max-width: 100%;
@@ -422,67 +462,113 @@ $img: '../images/';
     }
   }
 
+  .consultation__title {
+    font-size: 20px;
+  }
+
+  .consultation--in .consultation__title {
+    margin-bottom: 32px;
+  }
+
+  .consultation--in a.btn {
+    margin-top: 40px;
+  }
+
+  .btn {
+    font-size: 14px;
+  }
+
   .consultation {
     padding: 0;
+    padding-bottom: 12px;
+  }
+  .consultation__image {
+    height: 320px;
   }
 
   .consultation--in .consultation__content {
     max-width: 100%;
     min-height: 0;
+    padding: 48px 24px;
+  }
+
+  .consultation--in {
+    margin-top: 12px;
+  }
+
+  .consultation--in .consultation__inner.container {
+    gap: 12px;
   }
 
   .consultation__inner.container {
     display: flex;
     flex-direction: column;
+    gap: 12px;
   }
 
-  .consultation__image {
+  .consultation--in .consultation__image {
     height: 284px;
   }
 
-  /* Steps */
-  .steps {
-    padding: 60px 0;
-
-    &__title {
-      font-size: 32px;
-      margin-bottom: 32px;
-    }
-
-    &__grid {
-      grid-template-columns: 1fr;
-      gap: 16px;
-    }
+  .consultation--reverse {
+    margin-top: 0;
   }
 
-  .step-card {
-    padding: 24px 20px;
+  .consultation__content {
+    padding-left: 32px;
+    padding-right: 32px;
+    min-height: 0;
+  }
 
-    &--full {
-      grid-column: 1;
-    }
-    &__title {
-      font-size: 18px;
-    }
-    &__desc {
-      font-size: 14px;
-    }
+  .steps {
+    padding-bottom: 12px;
+  }
+
+  .steps__grid {
+    gap: 22px;
+  }
+
+  .step-card__title {
+    font-size: 16px;
+  }
+
+  .step-card__desc {
+    font-size: 16px;
+  }
+
+  .step-card__number {
+    font-size: 16px;
   }
 
   /* Review */
   .review {
     padding-bottom: 52px;
 
-    &__card {
-      padding: 28px 24px;
-    }
     &__name {
       font-size: 18px;
     }
-    &__quote {
-      font-size: 16px;
-      padding-left: 16px;
-    }
+  }
+
+  .review__card {
+    padding: 48px 24px;
+  }
+
+  .review__quote {
+  }
+
+  .review__grid {
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+  }
+
+  .profile {
+    gap: 16px;
+    font-size: 16px;
+  }
+
+  .profile__name {
+    font-size: 16px;
   }
 
   /* FAQ */
@@ -536,9 +622,15 @@ $img: '../images/';
   }
 
   .section__subhead {
+    font-size: 20px;
+    line-height: 28px;
     margin-bottom: 32px;
     max-width: 100%;
     text-align: center;
+
+    br {
+      display: none;
+    }
   }
 
   /* Form Section */
