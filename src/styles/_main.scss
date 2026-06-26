@@ -321,6 +321,25 @@ h3 {
   }
 }
 
+.menu-close {
+  position: fixed;
+  top: 0;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  border: 0;
+  z-index: 1;
+  display: none;
+}
+
+.menu-open .menu-close {
+  display: block;
+}
+
+header:not(.header--scrolled) .header__right {
+  top: calc(100%);
+}
+
 .header {
   position: sticky;
   padding-top: 30px;
@@ -328,6 +347,8 @@ h3 {
   z-index: 100;
 
   .container {
+    position: relative;
+    z-index: 101;
     background-color: #fff;
     border-top-right-radius: 40px;
     border-top-left-radius: 40px;
@@ -339,17 +360,16 @@ h3 {
     padding-top: 0;
 
     .container {
-      background-color: rgba(255, 255, 255, 50%);
+      background-color: rgb(230 238 255 / 70%);
       border-radius: 64px;
       height: 56px;
-      outline: 1px solid #bdd0ea;
+      // outline: 1px solid #bdd0ea;
       display: flex;
       align-items: center;
       padding-right: 0;
 
       // glass
 
-      background: rgba(255, 255, 255, 0.08);
       backdrop-filter: blur(20px) saturate(180%);
       -webkit-backdrop-filter: blur(20px) saturate(180%);
       border: 1px solid rgba(255, 255, 255, 0.12);

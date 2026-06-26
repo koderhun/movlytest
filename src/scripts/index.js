@@ -101,59 +101,67 @@ $(() => {
 
   // header sticky
 
-  //   const header = document.querySelector('.header')
+  const header = document.querySelector('.header')
 
-  //   if (header) {
-  //     let lastScrollY = window.scrollY
-  //     let ticking = false
+  if (header) {
+    let lastScrollY = window.scrollY
+    let ticking = false
 
-  //     const updateHeader = () => {
-  //       const currentScrollY = window.scrollY
-  //       const scrollThreshold = 50
+    const updateHeader = () => {
+      const currentScrollY = window.scrollY
+      const scrollThreshold = 50
 
-  //       if (currentScrollY > scrollThreshold) {
-  //         header.classList.add('header--scrolled')
-  //       } else {
-  //         header.classList.remove('header--scrolled')
-  //       }
+      if (currentScrollY > scrollThreshold) {
+        header.classList.add('header--scrolled')
+      } else {
+        header.classList.remove('header--scrolled')
+      }
 
-  //       lastScrollY = currentScrollY
-  //       ticking = false
-  //     }
+      lastScrollY = currentScrollY
+      ticking = false
+    }
 
-  //     const onScroll = () => {
-  //       if (!ticking) {
-  //         window.requestAnimationFrame(() => {
-  //           updateHeader()
-  //         })
-  //         ticking = true
-  //       }
-  //     }
+    const onScroll = () => {
+      if (!ticking) {
+        window.requestAnimationFrame(() => {
+          updateHeader()
+        })
+        ticking = true
+      }
+    }
 
-  //     window.addEventListener('scroll', onScroll, {passive: true})
+    window.addEventListener('scroll', onScroll, {passive: true})
 
-  //     updateHeader()
-  //   }
+    updateHeader()
+  }
 
-  //   const burger = document.querySelector('.header__burger')
-  //   const headerRight = document.querySelector('.header__right')
+  const burger = document.querySelector('.header__burger')
+  const headerRight = document.querySelector('.header__right')
 
-  //   if (burger && headerRight) {
-  //     burger.addEventListener('click', () => {
-  //       const isExpanded = burger.getAttribute('aria-expanded') === 'true'
-  //       burger.setAttribute('aria-expanded', String(!isExpanded))
-  //       headerRight.classList.toggle('header__right--open', !isExpanded)
-  //       document.body.classList.toggle('menu-open', !isExpanded)
-  //     })
+  const MenuClose = () => {
+    burger.setAttribute('aria-expanded', 'false')
+    headerRight.classList.remove('header__right--open')
+    document.body.classList.remove('menu-open')
+  }
 
-  //     headerRight.querySelectorAll('.header__link').forEach((link) => {
-  //       link.addEventListener('click', () => {
-  //         burger.setAttribute('aria-expanded', 'false')
-  //         headerRight.classList.remove('header__right--open')
-  //         document.body.classList.remove('menu-open')
-  //       })
-  //     })
-  //   }
+  if (burger && headerRight) {
+    burger.addEventListener('click', () => {
+      const isExpanded = burger.getAttribute('aria-expanded') === 'true'
+      burger.setAttribute('aria-expanded', String(!isExpanded))
+      headerRight.classList.toggle('header__right--open', !isExpanded)
+      document.body.classList.toggle('menu-open', !isExpanded)
+    })
+
+    headerRight.querySelectorAll('.header__link').forEach((link) => {
+      link.addEventListener('click', () => {
+        MenuClose()
+      })
+    })
+
+    document.querySelector('.menu-close').addEventListener('click', () => {
+      MenuClose()
+    })
+  }
 
   //   // акардион
 })
