@@ -50,11 +50,11 @@ $(() => {
       initialSlide: 2,
       spaceBetween: 8,
       speed: 600,
-      autoplay: {
-        delay: 9000,
-        disableOnInteraction: false,
-        pauseOnMouseEnter: true,
-      },
+      // autoplay: {
+      //   delay: 19000,
+      //   disableOnInteraction: false,
+      //   pauseOnMouseEnter: true,
+      // },
 
       navigation: {
         nextEl: '.slider-section__button--next',
@@ -63,7 +63,7 @@ $(() => {
 
       breakpoints: {
         320: {
-          slidesPerView: 1.2,
+          slidesPerView: 1.5,
         },
         480: {
           slidesPerView: 2,
@@ -138,6 +138,12 @@ $(() => {
   const burger = document.querySelector('.header__burger')
   const headerRight = document.querySelector('.header__right')
 
+  const MenuClose = () => {
+    burger.setAttribute('aria-expanded', 'false')
+    headerRight.classList.remove('header__right--open')
+    document.body.classList.remove('menu-open')
+  }
+
   if (burger && headerRight) {
     burger.addEventListener('click', () => {
       const isExpanded = burger.getAttribute('aria-expanded') === 'true'
@@ -148,12 +154,238 @@ $(() => {
 
     headerRight.querySelectorAll('.header__link').forEach((link) => {
       link.addEventListener('click', () => {
-        burger.setAttribute('aria-expanded', 'false')
-        headerRight.classList.remove('header__right--open')
-        document.body.classList.remove('menu-open')
+        MenuClose()
       })
+    })
+
+    document.querySelector('.menu-close').addEventListener('click', () => {
+      MenuClose()
     })
   }
 
-  // акардион
+  function formatPhoneValue(value) {
+    const digits = value.replace(/\D/g, '')
+    if (!digits) {
+      return ''
+    }
+
+    let normalized = digits
+    if (normalized.startsWith('8')) {
+      normalized = '7' + normalized.slice(1)
+    }
+    if (!normalized.startsWith('7')) {
+      normalized = '7' + normalized
+    }
+    normalized = normalized.slice(0, 11)
+
+    const local = normalized.slice(1)
+    const part1 = local.slice(0, 3)
+    const part2 = local.slice(3, 6)
+    const part3 = local.slice(6, 8)
+    const part4 = local.slice(8, 10)
+
+    let formatted = '+7'
+    if (part1) formatted += ' ' + part1
+    if (part2) formatted += ' ' + part2
+    if (part3) formatted += ' ' + part3
+    if (part4) formatted += ' ' + part4
+
+    return formatted
+  }
+
+  function isPhoneFilled(value) {
+    return /^\+7\s\d{3}\s\d{3}\s\d{2}\s\d{2}$/.test(value)
+  }
+
+  function setContactMode(mode) {
+    const phoneInput = document.getElementById('phone')
+    const telegramInput = document.getElementById('telegram')
+    if (!phoneInput || !telegramInput) {
+      return
+    }
+
+    const phoneActive = mode === 'phone'
+    phoneInput.disabled = !phoneActive
+    telegramInput.disabled = phoneActive
+    phoneInput.required = phoneActive
+    telegramInput.required = !phoneActive
+
+    if (!phoneActive) {
+      phoneInput.value = ''
+    } else {
+      telegramInput.value = ''
+    }
+  }
+
+  function validateForm() {
+    const nameInput = document.getElementById('name')
+    const phoneInput = document.getElementById('phone')
+    const telegramInput = document.getElementById('telegram')
+    const agreementInput = document.querySelector('input[name="agreement"]')
+    const submitButton = document.querySelector('.form__submit')
+    const activeContact = document.querySelector(
+      'input[name="contact-type"]:checked',
+    )
+
+    if (
+      !nameInput ||
+      !phoneInput ||
+      !telegramInput ||
+      !agreementInput ||
+      !submitButton ||
+      !activeContact
+    ) {
+      return
+    }
+
+    const nameFilled = nameInput.value.trim().length > 0
+    const phoneFilled =
+      activeContact.value === 'phone' && isPhoneFilled(phoneInput.value.trim())
+    const telegramFilled =
+      activeContact.value === 'telegram' &&
+      telegramInput.value.trim().length > 0
+    const agreementChecked = agreementInput.checked
+
+    submitButton.disabled = !(
+      nameFilled &&
+      (phoneFilled || telegramFilled) &&
+      agreementChecked
+    )
+  }
+
+  const contactRadios = document.querySelectorAll('input[name="contact-type"]')
+  contactRadios.forEach((radio) => {
+    radio.addEventListener('change', () => {
+      setContactMode(radio.value)
+      validateForm()
+    })
+  })
+
+  const phoneInput = document.getElementById('phone')
+  const telegramInput = document.getElementById('telegram')
+  const nameInput = document.getElementById('name')
+  const agreementInput = document.querySelector('input[name="agreement"]')
+
+  if (phoneInput) {
+    phoneInput.addEventListener('input', () => {
+      const formatted = formatPhoneValue(phoneInput.value)
+      phoneInput.value = formatted
+      validateForm()
+    })
+  }
+
+  if (telegramInput) {
+    telegramInput.addEventListener('input', validateForm)
+  }
+
+  if (nameInput) {
+    nameInput.addEventListener('input', validateForm)
+  }
+
+  if (agreementInput) {
+    agreementInput.addEventListener('change', validateForm)
+  }
+
+  const successModal = document.getElementById('formSuccessModal')
+  const formElement = document.querySelector('.form')
+
+  function openModal() {
+    if (!successModal) {
+      return
+    }
+
+    successModal.classList.add('modal--visible')
+    successModal.setAttribute('aria-hidden', 'false')
+    document.body.classList.add('modal-open')
+  }
+
+  function closeModal() {
+    if (!successModal) {
+      return
+    }
+
+    successModal.classList.remove('modal--visible')
+    successModal.setAttribute('aria-hidden', 'true')
+    document.body.classList.remove('modal-open')
+
+    document.querySelector('.form-section').scrollIntoView({
+      behavior: 'smooth',
+    })
+  }
+
+  document.querySelectorAll('[data-modal-close]').forEach((button) => {
+    button.addEventListener('click', closeModal)
+  })
+
+  if (successModal) {
+    successModal.addEventListener('click', (event) => {
+      if (event.target === successModal) {
+        closeModal()
+      }
+    })
+  }
+
+  document.addEventListener('keydown', (event) => {
+    if (
+      event.key === 'Escape' &&
+      successModal?.classList.contains('modal--visible')
+    ) {
+      closeModal()
+    }
+  })
+
+  if (formElement) {
+    formElement.addEventListener('submit', async (event) => {
+      event.preventDefault()
+
+      const submitButton = formElement.querySelector('.form__submit')
+      if (!submitButton || submitButton.disabled) {
+        return
+      }
+
+      const apiUrl =
+        formElement.dataset.api || formElement.action || '/api/feedback'
+      const activeContact = document.querySelector(
+        'input[name="contact-type"]:checked',
+      )
+      const payload = {
+        name: nameInput?.value.trim(),
+        contactType: activeContact?.value || null,
+        phone: phoneInput?.value.trim(),
+        telegram: telegramInput?.value.trim(),
+        agreement: agreementInput?.checked,
+      }
+
+      try {
+        // const response = await fetch(apiUrl, {
+        //   method: 'POST',
+        //   headers: {
+        //     'Content-Type': 'application/json',
+        //   },
+        //   body: JSON.stringify(payload),
+        // })
+
+        // if (!response.ok) {
+        //   throw new Error('Ошибка запроса')
+        // }
+        console.log('okkk', JSON.stringify(payload))
+
+        openModal()
+        formElement.reset()
+        setContactMode('phone')
+        validateForm()
+      } catch (error) {
+        console.error('Ошибка отправки формы', error)
+        alert('Не удалось отправить заявку. Попробуйте позже.')
+      }
+    })
+  }
+
+  setContactMode(
+    document.querySelector('input[name="contact-type"]:checked')?.value ||
+      'phone',
+  )
+  validateForm()
+
+  //   // акардион
 })
