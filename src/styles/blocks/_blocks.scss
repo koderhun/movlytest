@@ -200,16 +200,6 @@ $img: '../images/';
 
         .slider-section__content {
           transform: translateY(0);
-          min-height: 180px;
-          padding: 25px 20px;
-        }
-
-        .slider-section__number {
-          font-size: 36px;
-        }
-
-        .slider-section__title {
-          font-size: 20px;
         }
       }
 
@@ -220,10 +210,14 @@ $img: '../images/';
         filter: blur(1px);
       }
     }
+  }
 
-    &__content {
-      min-height: 160px;
-      padding: 20px 15px;
-    }
+  .slider-section {
+    margin-left: -24px;
+    margin-right: -24px;
+  }
+
+  .slider1 {
+    padding-top: 470px;
   }
 }
