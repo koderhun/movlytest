@@ -611,13 +611,21 @@
               получение ВНЖ для вас!
             </h2>
             <form class="form" action="#" method="POST">
+
+
+
               <div class="form__group">
-                <label class="form__label" for="name">Имя</label>
                 <input class="form__input" type="text" id="name" name="name" placeholder="Введите ваше имя" required />
               </div>
 
               <div class="form__group">
-                <label class="form__label" for="telegram">Telegram</label>
+                <label class="form-radio">
+                  <input class="form-radio__check" value="telegram" type="radio" name="contact-type" />
+                  <span class="form-radio__icon"></span>
+
+                  <span class="form-radio__title">Телеграм</span>
+                </label>
+
                 <div class="form__input-wrapper">
                   <span class="form__input-prefix">@</span>
                   <input class="form__input form__input--with-prefix" type="text" id="telegram" name="telegram"
@@ -626,7 +634,13 @@
               </div>
 
               <div class="form__group">
-                <label class="form__label" for="phone">Телефон</label>
+                <label class="form-radio">
+                  <input class="form-radio__check" value="phone" type="radio" name="contact-type" checked />
+                  <span class="form-radio__icon"></span>
+
+                  <span class="form-radio__title">Телефон</span>
+                </label>
+
                 <input class="form__input" type="tel" id="phone" name="phone" placeholder="+7 000 000 00 00" required />
               </div>
 
@@ -640,7 +654,7 @@
                 </label>
               </div>
 
-              <button class="form__submit btn btn--primary" type="submit">
+              <button class="form__submit btn btn--primary" type="submit" disabled>
                 ОТПРАВИТЬ
               </button>
             </form>
