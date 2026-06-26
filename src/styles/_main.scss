@@ -1385,12 +1385,14 @@ section {
   }
 
   &__input {
-    padding: 22px 32px;
+    height: 64px;
+    line-height: 1;
+    padding: 10px 32px;
     border: 0px solid var(--color-inactive);
     border-radius: 42px;
     font-size: 20px;
     font-weight: 400;
-    color: var(--color-inactive-text);
+    color: var(--color-heading);
     background: var(--color-bg-main);
     transition:
       border-color 0.25s ease,
@@ -1540,6 +1542,93 @@ section {
       color: #bdd0ea;
       opacity: 1;
     }
+  }
+}
+
+body.modal-open {
+  position: fixed;
+  overflow-y: scroll;
+  top: 0;
+  bottom: 0;
+  left: 0;
+  right: 0;
+}
+
+.modal {
+  position: fixed;
+  inset: 0;
+  display: none;
+  align-items: center;
+  justify-content: center;
+  z-index: 9999;
+
+  &--visible {
+    display: flex;
+  }
+
+  &__overlay {
+    position: absolute;
+    inset: 0;
+    background: rgba(10, 15, 35, 0.65);
+    backdrop-filter: blur(4px);
+  }
+
+  &__content {
+    position: relative;
+    width: min(540px, calc(100% - 32px));
+    padding: 40px 32px;
+    border-radius: 32px;
+    background: rgba(255, 255, 255, 80%);
+    backdrop-filter: blur(4px);
+    box-shadow: 0 40px 80px rgba(15, 23, 42, 0.16);
+    z-index: 1;
+    text-align: center;
+  }
+
+  &__close {
+    position: absolute;
+    top: 18px;
+    right: 18px;
+    border: none;
+    cursor: pointer;
+    line-height: 1;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 48px;
+    background: none;
+    height: 48px;
+    transition: var(--transition-base);
+
+    &:focus,
+    &:hover {
+      opacity: 0.8;
+    }
+
+    &::before {
+      content: '';
+      display: block;
+      width: 24px;
+      height: 24px;
+      background-image: url($img + 'close.svg');
+      background-position: center;
+      background-size: 100%;
+      background-repeat: no-repeat;
+    }
+  }
+
+  &__title {
+    margin: 0 0 32px;
+    font-size: 24px;
+    font-weight: 400;
+    text-transform: uppercase;
+    color: var(--color-heading);
+  }
+
+  &__text {
+    margin: 0;
+    font-size: 20px;
+    color: var(--color-body-text);
   }
 }
 
