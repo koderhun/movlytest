@@ -546,7 +546,7 @@ $img: '../images/';
     max-width: 100%;
   }
 
-  .client-card__image {
+  .client-card__image-inner {
     display: block;
     opacity: 1;
     position: static;
@@ -556,7 +556,12 @@ $img: '../images/';
     border-radius: 20px;
     margin-bottom: 34px;
     max-height: 314px;
+    padding: 24px 24px 0 24px;
+  }
+
+  .client-card__image {
     object-fit: contain;
+    border-radius: 20px;
   }
 
   .client-card__title {
@@ -898,5 +903,14 @@ $img: '../images/';
 @media (max-width: 480px) {
   .about__card--intro {
     min-height: 540px;
+  }
+
+  .client-card__image-inner {
+    padding: 0;
+    max-height: 100%;
+  }
+
+  .client-card__image {
+    width: 100%;
   }
 }
