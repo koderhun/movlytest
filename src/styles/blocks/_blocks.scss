@@ -9,8 +9,8 @@ $img: '../images/';
     &.slide-4,
     &.slide-5 {
       background-color: #fff;
-      background-position: center;
-      background-size: 100%;
+      background-position: center right;
+      background-size: auto 100%;
       background-repeat: no-repeat;
       transition: var(--transition-base);
     }
@@ -18,19 +18,19 @@ $img: '../images/';
 }
 
 .slide-0 {
-  background-image: url($img + 'netherlands-bg.webp');
+  background-image: url($img + 'ni-bg.svg');
 }
 .slide-1 {
-  background-image: url($img + 'uk-bg.webp');
+  background-image: url($img + 'uk-bg.svg');
 }
 .slide-2 {
-  background-image: url($img + 'france-bg.webp');
+  background-image: url($img + 'fr-bg.svg');
 }
 .slide-3 {
-  background-image: url($img + 'portugale-bg.webp');
+  background-image: url($img + 'pt-bg.svg');
 }
 .slide-4 {
-  background-image: url($img + 'spain-bg.webp');
+  background-image: url($img + 'es-bg.svg');
 }
 
 .slider1 {
@@ -219,5 +219,23 @@ $img: '../images/';
 
   .slider1 {
     padding-top: 470px;
+  }
+
+  .baner__container {
+    &.slide-0 {
+      background-image: url($img + 'ni-mobile-bg.svg');
+    }
+    &.slide-1 {
+      background-image: url($img + 'uk-mobile-bg.svg');
+    }
+    &.slide-2 {
+      background-image: url($img + 'fr-mobile-bg.svg');
+    }
+    &.slide-3 {
+      background-image: url($img + 'pt-mobile-bg.svg');
+    }
+    &.slide-4 {
+      background-image: url($img + 'es-mobile-bg.svg');
+    }
   }
 }

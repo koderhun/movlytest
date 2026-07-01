@@ -392,8 +392,9 @@ $img: '../images/';
   .baner .container {
     padding-top: 33px;
     padding-bottom: 44px;
-    background-size: 300%;
-    background-position: right -55px bottom 35%;
+
+    background-position: center right;
+    background-size: 100%;
   }
 
   // body.menu-open {
