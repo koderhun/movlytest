@@ -59,8 +59,13 @@ img {
   display: block;
 }
 
+strong,
 b {
-  font-weight: 500;
+  font-weight: 600;
+  font-family: var(--font-family-primary);
+}
+
+em {
   color: var(--color-heading);
 }
 
@@ -130,6 +135,8 @@ h3 {
   text-decoration: none;
   width: fit-content;
   transition: var(--transition-line);
+  font-family: var(--font-family-primary);
+  font-weight: 600;
 
   &__image {
     position: absolute;
@@ -669,6 +676,8 @@ section {
     background: var(--color-bg-card);
     border-radius: 40px;
     padding: 44px 28px 64px 28px;
+    min-height: 260px;
+    font-family: var(--font-family-primary);
 
     &--intro {
       grid-column: span 2;
@@ -690,6 +699,7 @@ section {
     }
 
     &--picture {
+      overflow: hidden;
       justify-content: flex-end;
       padding: 0;
       background-image: url($img + 'pattern-gray.svg');
@@ -741,7 +751,7 @@ section {
     img {
       width: 24px;
       height: 24px;
-      object-fit: contain;
+      object-fit: none;
     }
   }
 }
@@ -1185,6 +1195,7 @@ section {
     font-weight: 400;
     color: var(--color-heading);
     text-transform: uppercase;
+    text-overflow: ellipsis;
   }
 
   &__line {
@@ -1197,6 +1208,7 @@ section {
     margin-top: 10px;
     display: block;
     color: var(--color-accent);
+    text-overflow: ellipsis;
   }
 
   &__age {
@@ -1280,6 +1292,7 @@ section {
   .pic {
     margin-top: -5px;
     background-size: auto;
+    transition: var(--transition-base);
   }
 
   &:has(.faq-item__input:checked) {
@@ -1304,20 +1317,13 @@ section {
     }
 
     .faq-item {
-      &__f1 {
-        background-image: url($img + 'fq1-hover.svg');
-      }
-      &__f2 {
-        background-image: url($img + 'fq2-hover.svg');
-      }
-      &__f3 {
-        background-image: url($img + 'fq3-hover.svg');
-      }
-      &__f4 {
-        background-image: url($img + 'fq4-hover.svg');
-      }
+      &__f1,
+      &__f2,
+      &__f3,
+      &__f4,
       &__f5 {
-        background-image: url($img + 'fq5-hover.svg');
+        filter: brightness(0) saturate(100%) invert(27%) sepia(76%)
+          saturate(1470%) hue-rotate(191deg) brightness(95%) contrast(101%);
       }
     }
   }
@@ -1888,6 +1894,17 @@ body.modal-open {
   &__inner {
     margin-top: 128px;
     padding-right: 20px;
+
+    a {
+      color: var(--color-body-text);
+      text-decoration: none;
+      transition: color 0.2s ease;
+
+      &:hover {
+        color: var(--color-body-hover);
+        text-decoration: underline;
+      }
+    }
   }
 
   &__copyright {
