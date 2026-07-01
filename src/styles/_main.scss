@@ -2150,6 +2150,7 @@ body.modal-open {
   &__content {
     max-width: 540px;
     width: 100%;
+    min-width: 435px;
   }
 
   &__left,
