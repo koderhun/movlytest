@@ -130,9 +130,9 @@ $(() => {
       }
     }
 
-    window.addEventListener('scroll', onScroll, {passive: true})
+    // window.addEventListener('scroll', onScroll, {passive: true})
 
-    updateHeader()
+    // updateHeader()
   }
 
   const burger = document.querySelector('.header__burger')
