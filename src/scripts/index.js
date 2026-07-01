@@ -334,6 +334,7 @@ $(() => {
     }
   })
 
+  // start form validation
   if (formElement) {
     formElement.addEventListener('submit', async (event) => {
       event.preventDefault()
@@ -343,8 +344,7 @@ $(() => {
         return
       }
 
-      const apiUrl =
-        formElement.dataset.api || formElement.action || '/api/feedback'
+      const apiUrl = 'SendRequest.php'
       const activeContact = document.querySelector(
         'input[name="contact-type"]:checked',
       )
@@ -357,18 +357,17 @@ $(() => {
       }
 
       try {
-        // const response = await fetch(apiUrl, {
-        //   method: 'POST',
-        //   headers: {
-        //     'Content-Type': 'application/json',
-        //   },
-        //   body: JSON.stringify(payload),
-        // })
+        const response = await fetch(apiUrl, {
+          method: 'POST',
+          headers: {
+            'Content-Type': 'application/json',
+          },
+          body: JSON.stringify(payload),
+        })
 
-        // if (!response.ok) {
-        //   throw new Error('Ошибка запроса')
-        // }
-        console.log('okkk', JSON.stringify(payload))
+        if (!response.ok) {
+          throw new Error('Ошибка запроса')
+        }
 
         openModal()
         formElement.reset()
@@ -380,6 +379,8 @@ $(() => {
       }
     })
   }
+
+  // end form validation
 
   setContactMode(
     document.querySelector('input[name="contact-type"]:checked')?.value ||
