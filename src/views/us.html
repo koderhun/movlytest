@@ -11,73 +11,56 @@
   @@include("./template/header.html")
 
   <main>
-    @@include("./template/baner1.html")
 
+    <section class="hero">
+      <div class="container hero__inner">
+        <div class="hero__content">
+          <h1 class="hero__title">
+            Получите ВНЖ
+            <br>
+            в США в срок
+            <br>
+            от 6 месяцев
+          </h1>
 
+          <p class="hero__desc">
+            Благодаря индивидуальному подходу к каждому кейсу более 95% наших клиентов успешно получили ВНЖ в США!
+          </p>
 
-    <section class="section about" id="about">
-      <div class="container about__container">
-        <div class="about__grid">
+          <a href="#feedback" class="btn btn--image btn--large">
+            Записаться на Консультацию
+            <div class="btn__image ">
+              <img src="./images/teleg-blue.svg" alt="telega">
+            </div>
+          </a>
 
-          <div class="about__card about__card--intro">
-            <h2 class="about__title">Помогаем людям жить свободно там, где они выбирают</h2>
-            <p class="about__text">
-              <strong class="about__brand">Movly</strong> — международная компания, сопровождаем клиентов на пути к
-              получению ВНЖ в любых странах. Наша сила — в экспертизе, прозрачности и персональном подходе. С нами вы не
-              просто оформите документы, а откроете новую главу в жизни.
-            </p>
+        </div>
+
+        <div class="hero__features">
+          <div class="hero__left">
+            <div class="hero__feature--image">
+              <img src="./images/hero1-us.webp" alt="">
+            </div>
+            <div class="hero__feature">
+              <span class="hero__feature-icon hero__feature-icon--shop"></span>
+              <span class="hero__feature-text">
+                <b>Делаем всё под ключ:</b> готовим документы, публикации в СМИ, ведем запись на собеседования и всю
+                переписку
+                с госорганами за вас.
+              </span>
+            </div>
           </div>
 
-          <div class="about__card about__card--stat">
-            <div class="about__icon-wrapper">
-              <img class="about__icon" src="./images/about2.svg" alt="" width="40" height="40">
-            </div>
-            <p class="about__stat">
-              <strong class="about__stat-number">500+ человек</strong> получили ВНЖ для себя, своих команд и членов
-              семей с Movly.
-            </p>
-          </div>
+          <div class="hero__right">
+            <div class="hero__feature">
+              <span class="hero__feature-icon hero__feature-icon--check"></span>
 
-          <div class="about__card about__card--experts">
-            <div class="about__icon-wrapper">
-              <img class="about__icon" src="./images/about3.svg" alt="" width="40" height="40">
+              <span class="hero__feature-text">
+                <b>Беремся даже за сложные случаи:</b> сделаем так, что ваш профиль подойдет под одну из программ!
+              </span>
             </div>
-            <p class="about__text">
-              <strong class="about__highlight">Эксперты</strong> в США, Европе, Канаде, ОАЭ и других странах.
-            </p>
-          </div>
-
-          <div class="about__card about__card--team">
-            <div class="about__icon-wrapper">
-              <img class="about__icon" src="./images/about4.svg" alt="" width="40" height="40">
-            </div>
-            <p class="about__text"><b>Команда</b> миграционных юристов, бизнес аналитиков и PR специалистов.</p>
-          </div>
-
-          <div class="about__card about__card--relations">
-            <div class="about__icon-wrapper">
-              <img class="about__icon" src="./images/about5.svg" alt="" width="40" height="40">
-            </div>
-            <p class="about__text">
-              <strong class="about__highlight">Строим долгосрочные отношения</strong> с клиентами и остаемся с вами на
-              всем пути получения ВНЖ.
-            </p>
-          </div>
-
-          <div class="about__card about__card--image">
-            <div class="about__inner-content">
-              <div class="about__icon-wrapper">
-                <img class="about__icon" src="./images/about6.svg" alt="" width="40" height="40">
-              </div>
-              <p class="about__text">
-                <strong class="about__highlight">Подберем варианты</strong> получения ВНЖ в нужной стране, даже если
-                <strong class="about__highlight about__highlight--accent">кажется</strong>, что вы не подходите ни под
-                одну программу.
-              </p>
-            </div>
-            <div class="about__inner-image">
-              <img class="about__image" src="./images/consultant-photo-2x.webp" alt="Консультант Movly на пляже"
-                loading="lazy">
+            <div class="hero__feature--image">
+              <img src="./images/hero2-us.webp" alt="">
             </div>
           </div>
 
@@ -85,77 +68,17 @@
       </div>
     </section>
 
-    <section id="clients" class="clients">
-      <div class="container">
-        <h2 class="clients__title">
-          С Movly работают те, кто знает, чего хочет
-        </h2>
-
-        <div class="clients__grid">
-          <article class="client-card">
-            <h3 class="client-card__title">ПРЕДПРИНИМАТЕЛИ</h3>
-            <div class="client-card__image-inner">
-              <img class="client-card__image" src="./images/client1.webp" alt="ПРЕДПРИНИМАТЕЛИ" width="250"
-                height="264">
-            </div>
-            <p class="client-card__desc">
-              Которые хотят выйти на международный рынок, зарегистрировать бизнес за границей, получить ВНЖ через
-              инвестиции в стартап или свою компанию.
-            </p>
-          </article>
-
-          <article class="client-card">
-            <h3 class="client-card__title">IT-СПЕЦИАЛИСТЫ & СТАРТАПЫ</h3>
-            <div class="client-card__image-inner">
-              <img class="client-card__image" src="./images/client2.webp" alt="ПРЕДПРИНИМАТЕЛИ" width="250"
-                height="264">
-            </div>
-            <p class="client-card__desc">
-              Которые работают на международные проекты и хотят закрепиться в безопасной и развитой стране с
-              возможностью масштабироваться.
-            </p>
-          </article>
-
-          <article class="client-card">
-            <h3 class="client-card__title">ИНВЕСТОРЫ</h3>
-            <div class="client-card__image-inner">
-              <img class="client-card__image" src="./images/client3.webp" alt="ПРЕДПРИНИМАТЕЛИ" width="250"
-                height="264">
-
-            </div>
-            <p class="client-card__desc">
-              Которые планируют расширить активы, инвестировать в недвижимость или экономику другой страны и получить
-              ВНЖ на льготных условиях.
-            </p>
-          </article>
-
-          <article class="client-card">
-            <h3 class="client-card__title">ЭКСПЕРТЫ & ФРИЛАНСЕРЫ</h3>
-            <div class="client-card__image-inner">
-              <img class="client-card__image" src="./images/client4.webp" alt="ПРЕДПРИНИМАТЕЛИ" width="250"
-                height="264">
-
-            </div>
-            <p class="client-card__desc">
-              Которые хотят сохранить свободу передвижения и свою профессию, но жить в стране со стабильной экономикой и
-              доступом к клиентам по всему миру.
-            </p>
-          </article>
-        </div>
-      </div>
-    </section>
-
-    <section id="consultation" class="consultation">
+    <section id="consultation" class="consultation consultation--reverse">
       <div class="container consultation__inner">
         <div class="consultation__content">
           <h2 class="consultation__title">
-            Запишитесь на первую бесплатную консультацию
+            Запишитесь на бесплатную консультацию
           </h2>
           <p class="consultation__desc">
-            Мы поможем выбрать оптимальную для вас программу для получения ВНЖ!
+            Mы поможем оценить ваши шансы получения ВНЖ в странах ЕС!
           </p>
           <a href="#feedback" class="btn btn--image">
-            Записаться на Консультацию
+            Проконсультироваться
             <span class="btn__image ">
               <img src="./images/teleg-blue.svg" alt="telega">
             </span>
@@ -167,74 +90,77 @@
       </div>
     </section>
 
-    <section id="selectedus" class="section about about--init">
+    <section class="section about about--es" id="about">
       <div class="container about__container">
-        <h2 class="section__subhead">Нас выбирают за индивидуальный подход к каждому клиенту <br>
-          и полную юридическую безопасность</h2>
-
         <div class="about__grid">
-          <div class="about__card">
-            <div class="about__icon-wrapper">
-              <img class="about__icon" src="./images/init1.svg" alt="" width="40" height="40">
-            </div>
-            <h3 class="about__title">Официальный договор</h3>
+
+          <div class="about__card about__card--intro">
+            <h2 class="about__title">
+              Больше 300 человек получили ВНЖ с MOLVY за последние 2 года
+            </h2>
             <p class="about__text">
-              Оказываем услуги по договору, в котором прописаны все нюансы сотрудничества и гарантии.
+              Мы сопровождаем клиентов на пути к получению ВНЖ в любых странах Европы. Наша сила — в экспертизе,
+              прозрачности и персональном подходе. С нами вы не просто оформите документы, а откроете новую главу
+              в жизни.
             </p>
           </div>
 
           <div class="about__card about__card--stat">
             <div class="about__icon-wrapper">
-              <img class="about__icon" src="./images/init2.svg" alt="" width="40" height="40">
+              <img class="about__icon" src="./images/f1.svg" alt="" width="40" height="40">
             </div>
-            <h3 class="about__title">Фиксированная цена</h3>
-
-            <p class="about__text">
-              Стоимость наших услуг и порядок оплаты известны заранее и в процессе они не изменятся.
+            <p class="about__stat">
+              <b>Команда из более чем 40 специалистов</b> во Франции, Нидерландах, Италии и не только. Работаем со всеми
+              странами Евросоюза и Великобритании.
             </p>
           </div>
 
           <div class="about__card about__card--experts">
             <div class="about__icon-wrapper">
-              <img class="about__icon" src="./images/init3.svg" alt="" width="40" height="40">
+              <img class="about__icon" src="./images/f2.svg" alt="" width="40" height="40">
             </div>
-            <h3 class="about__title">Компетентность</h3>
-
             <p class="about__text">
-              Мы сами живем в разных развитых странах и помогли получить ВНЖ для 500+ человек.
+              <b>Закрываем под ключ всё:</b> от подачи документов до написания бизнес-планов для ВНЖ предпринимателя.
             </p>
           </div>
 
           <div class="about__card about__card--team">
             <div class="about__icon-wrapper">
-              <img class="about__icon" src="./images/init4.svg" alt="" width="40" height="40">
+              <img class="about__icon" src="./images/f3.svg" alt="" width="40" height="40">
             </div>
-            <h3 class="about__title">Понятная стратегия</h3>
-
             <p class="about__text">
-              Прописываем стратегию получения ВНЖ под клиента, и вы всегда знаете текущий статус вашего кейса.
+              Помогаем стартапам в нашем <b>бизнес-акселераторе в Нидерландах.</b>
             </p>
           </div>
 
           <div class="about__card about__card--relations">
             <div class="about__icon-wrapper">
-              <img class="about__icon" src="./images/init5.svg" alt="" width="40" height="40">
+              <img class="about__icon" src="./images/f4.svg" alt="" width="40" height="40">
             </div>
-            <h3 class="about__title">Полное сопровождение</h3>
-
             <p class="about__text">
-              Сопровождаем вас на всех этапах, записываем во все госорганы и объясняем, что и как говорить.
+              <b>Знаем, на что смотрят сотрудники европейских госорганов</b> при одобрении ВНЖ и какие требования
+              предъявляют
+              к заявителям.
             </p>
           </div>
 
           <div class="about__card">
             <div class="about__icon-wrapper">
-              <img class="about__icon" src="./images/init6.svg" alt="" width="40" height="40">
+              <img class="about__icon" src="./images/f5.svg" alt="" width="40" height="40">
             </div>
-            <h3 class="about__title">100% под ключ</h3>
-
             <p class="about__text">
-              Если нужно — составляем бизнес-планы, проводим PR активности, которые нужны для вашего ВНЖ.
+              <b>Мы даем 100% гарантию, что вам одобрят ВНЖ,</b> ведь наши клиенты стабильно получают одобрения
+              с очень
+              высокой вероятностью.
+            </p>
+          </div>
+
+          <div class="about__card about__card--bg">
+            <div class="about__icon-wrapper">
+              <img class="about__icon" src="./images/f6.svg" alt="" width="40" height="40">
+            </div>
+            <p class="about__text">
+              Если мы взялись за ваш кейс — <b>у вас будет ВНЖ.</b> Или мы вернем вам деньги.
             </p>
           </div>
 
@@ -242,96 +168,159 @@
       </div>
     </section>
 
-    <section id="steps" class="section steps">
-      <div class="container">
-        <h2 class="section__subhead steps__title">
-          Работаем чётко, прозрачно, под вас
+    <section class="benefits">
+      <div class="container benefits__container">
+        <h2 class="section__subhead benefits__title">
+          что вы получите после переезда в США
         </h2>
 
-        <div class="steps__grid">
-          <article class="step-card">
-            <span class="step-card__number">Шаг 01</span>
-            <div class="step-card__inner">
-              <h3 class="step-card__title">
-                <img src="./images/step1.svg" width="32" height="32" alt="" class="step-card__image">
-                Помогаем выбрать страну и программу
-              </h3>
-              <p class="step-card__desc">
-                Анализируем вашу ситуацию, цели и подбираем стратегию получения ВНЖ. Объясняем плюсы и минусы стран и
-                конкретных программ.
-              </p>
+        <div class="benefits__grid">
+          <article class="benefit-card">
+            <div class="benefit-card__image">
+              <img src="./images/benf1-us.webp" alt="Жизнь в Штатах" loading="lazy" />
             </div>
+            <h3 class="benefit-card__title">
+              Жизнь в Штатах
+            </h3>
+            <p class="benefit-card__desc">
+              Жизнь в самой крупной экономике с гарантией безопасности.
+            </p>
           </article>
 
-          <article class="step-card">
-            <span class="step-card__number">Шаг 02</span>
-            <div class="step-card__inner">
-              <h3 class="step-card__title">
-                <img src="./images/step2.svg" width="32" height="32" alt="" class="step-card__image">
-                Разрабатываем индивидуальную стратегию
-              </h3>
-              <p class="step-card__desc">
-                Объясняем, из каких этапов будет состоять путь получения ВНЖ в вашем случае — на каждом этапе вы будете
-                знать, что делать нам и вам, и что со сроками.
-              </p>
+          <article class="benefit-card benefit-card--reverse">
+            <div class="benefit-card__image">
+              <img src="./images/benf2-us.webp" alt="Работа в США" loading="lazy" />
             </div>
+            <h3 class="benefit-card__title">
+              Работа в США
+            </h3>
+            <p class="benefit-card__desc">
+              Работодатели охотнее берут на работу людей с ВНЖ.
+            </p>
           </article>
 
-          <article class="step-card">
-            <span class="step-card__number">Шаг 03</span>
-            <div class="step-card__inner">
-              <h3 class="step-card__title">
-                <img src="./images/step3.svg" width="32" height="32" alt="" class="step-card__image">
-                Готовим и подаем документы
-              </h3>
-              <p class="step-card__desc">
-                Готовим и подаём документы, прописываем бизнес-планы, ведём PR активность, если это нужно в вашем случае
-                —
-                все, что нужно для вашего ВНЖ вы получите под ключ.
-              </p>
+          <article class="benefit-card">
+            <div class="benefit-card__image">
+              <img src="./images/benf3-us.webp" alt="Налоговая безопасность" loading="lazy" />
             </div>
+            <h3 class="benefit-card__title">
+              Налоговая безопасность
+            </h3>
+            <p class="benefit-card__desc">
+              Понятная система налогообложения
+              и минимальный контроль.
+            </p>
           </article>
 
-          <article class="step-card">
-            <span class="step-card__number">Шаг 04</span>
-            <div class="step-card__inner">
-              <h3 class="step-card__title">
-                <img src="./images/step4.svg" width="32" height="32" alt="" class="step-card__image">
-                Записываем вас во все госорганы
-              </h3>
-              <p class="step-card__desc">
-                Вам не придётся думать, как записаться на собеседование, сдать биометрию и что говорить на личном
-                интервью
-                — мы вас везде запишем и всё подробно объясним.
-              </p>
+          <article class="benefit-card">
+            <div class="benefit-card__image">
+              <img src="./images/benf4-us.webp" alt="Путешествия" loading="lazy" />
             </div>
+            <h3 class="benefit-card__title">
+              Путешествия
+            </h3>
+            <p class="benefit-card__desc">
+              С паспортом США у вас будет свободный
+              въезд в 180+ стран.
+            </p>
           </article>
 
-          <article class="step-card step-card--color">
-            <span class="step-card__number">Шаг 05</span>
-            <div class="step-card__inner">
-              <h3 class="step-card__title">
-                <img src="./images/step5.svg" width="32" height="32" alt="" class="step-card__image">
-                Получаем ВНЖ!
-              </h3>
-              <p class="step-card__desc">
-                В среднем процесс получения ВНЖ занимает 6 — 12 месяцев. В это время мы с вами всегда на связи и делаем
-                всё, чтобы вы скорее получили свободу жить там, где вам хочется!
-              </p>
+          <article class="benefit-card benefit-card--reverse">
+            <div class="benefit-card__image">
+              <img src="./images/benf5-us.webp" alt="Бизнес по всему миру" loading="lazy" />
             </div>
+            <h3 class="benefit-card__title">
+              Бизнес по всему миру
+            </h3>
+            <p class="benefit-card__desc">
+              Вы сможете вести бизнес без санкций и работать с любыми странами.
+            </p>
+          </article>
+
+          <article class="benefit-card">
+            <div class="benefit-card__image">
+              <img src="./images/benf6-us.webp" alt="Банковский счет" loading="lazy" />
+            </div>
+            <h3 class="benefit-card__title">
+              Банковский счет
+            </h3>
+            <p class="benefit-card__desc">
+              В любом американском банке и доступ к фондовому рынку.
+            </p>
           </article>
         </div>
       </div>
     </section>
 
-    <section id="reserch" class="consultation consultation--reverse">
+    <section id="clients" class="clients clients--es">
+      <div class="container">
+        <h2 class="clients__title">
+          В каком статусе проще всего получить ВНЖ
+        </h2>
+
+        <div class="clients__grid">
+          <article class="client-card">
+            <h3 class="client-card__title">Профессионал</h3>
+            <div class="client-card__image-inner">
+              <img class="client-card__image" src="./images/st1-us.webp" alt="Профессионал" width="250" height="264">
+            </div>
+            <p class="client-card__desc">
+              IT специалисты, врачи и другие эксперты, деятельность которых имеет высокую ценность в США.
+
+            </p>
+          </article>
+
+          <article class="client-card">
+            <h3 class="client-card__title">Талант</h3>
+            <div class="client-card__image-inner">
+              <img class="client-card__image" src="./images/st2-us.webp" alt="Талант" width="250" height="264">
+            </div>
+            <p class="client-card__desc">
+              Вы можете работать по любой специальности, вести бизнес в США законно и управлять своим налоговым
+              статусом.
+
+            </p>
+          </article>
+
+          <article class="client-card">
+            <h3 class="client-card__title">Инвестор</h3>
+            <div class="client-card__image-inner">
+              <img class="client-card__image" src="./images/st3-us.webp" alt="Инвестор" width="250" height="264">
+
+            </div>
+            <p class="client-card__desc">
+              Самый простой способ получить ВНЖ — от 800 000$ для граждан РФ и РБ, от 100 000$ для граждан других стран.
+
+            </p>
+          </article>
+
+          <article class="client-card">
+            <h3 class="client-card__title">Бизнес</h3>
+            <div class="client-card__image-inner">
+              <img class="client-card__image" src="./images/st4-us.webp" alt="Бизнес" width="250" height="264">
+
+            </div>
+            <p class="client-card__desc">
+              Если вы планируете перевезти действующий бизнес в США или инвестировать в открытие компании в Штатах.
+            </p>
+          </article>
+
+          <article class="client-inner">
+            <a href="/" class="client-link">Узнать подробнее о возможностях</a>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <section id="consultation" class="consultation consultation--reverse consultation--es">
       <div class="container consultation__inner">
         <div class="consultation__content">
           <h2 class="consultation__title">
-            Узнайте, что нужно для получения ВНЖ в той стране, куда вы хотите
+            А можно не подходить ни под одну программу И ПОЛУЧИТЬ внж!
           </h2>
           <p class="consultation__desc">
-            Расскажем о возможностях и особенностях подходящих вам программ!
+            При бюджете от 20 000 $ можно не подходить ни под одну программу — мы просто сделаем так, что вы получите
+            ВНЖ!
           </p>
           <a href="#feedback" class="btn btn--image">
             Записаться на Консультацию
@@ -341,8 +330,119 @@
           </a>
         </div>
         <div class="consultation__image">
-          <img class="consultation__image-img" src="./images/consultation-image-reverse-2x.webp"
-            alt="Консультация Movly" lazyload>
+          <img class="consultation__image-img" src="./images/const-es.webp" alt="Консультация Movly" lazyload>
+        </div>
+      </div>
+    </section>
+
+    <section id="steps" class="section steps steps--es">
+      <div class="container">
+        <h2 class="section__subhead steps__title">
+          Этапы получения ВНЖ и порядок оплаты
+        </h2>
+
+        <small class="steps__small">
+          При сотрудничестве с MOLVY большую часть стоимости услуг вы оплачиваете,
+          когда уже на 100% уверены в получении ВНЖ. Весь процесс в среднем занимает 6 до 24 месяцев.
+        </small>
+
+        <div class="steps__grid">
+          <article class="step-card">
+            <span class="step-card__number">Шаг 01</span>
+            <div class="step-card__inner">
+              <h3 class="step-card__title">
+                <img src="./images/step1.svg" width="32" height="32" alt="" class="step-card__image">
+                Выбор программы
+              </h3>
+              <p class="step-card__desc">
+                В ходе первого созвона или в переписке вы расскажете о себе и о цели переезда. Мы оценим возможность
+                получения ВНЖ и предложим программы, по которым шансы одобрения для вас будут максимальными. Вы сразу
+                узнаете точную стоимость наших услуг, пошлин и бюджет на PR-активность, если она потребуется.
+              </p>
+            </div>
+          </article>
+
+          <article class="step-card">
+            <span class="step-card__number">Шаг 02</span>
+            <div class="step-card__inner">
+              <h3 class="step-card__title">
+                <img src="./images/dg.svg" width="32" height="32" alt="" class="step-card__image">
+                Заключение договора
+              </h3>
+              <p class="step-card__desc">
+                Заключаем официальный договор, в котором прописываем точную стоимость, список услуг и все гарантии.
+                Можем работать с юридическими и физическими лицами. После заключения договора происходит оплата
+                аванса — 40-50% от стоимости.
+              </p>
+            </div>
+          </article>
+
+          <article class="step-card">
+            <span class="step-card__number">Шаг 03</span>
+            <div class="step-card__inner">
+              <h3 class="step-card__title">
+                <img src="./images/step3.svg" width="32" height="32" alt="" class="step-card__image">
+                Подготовка документов
+              </h3>
+              <p class="step-card__desc">
+                Мы занимаемся подготовкой всех документов и сопроводительных писем. Паралельно запускаем PR активности
+                по условиям конкретной программы. Во всех случаях, где это возможно, ведем переписку с госорганами от
+                вашего имени. Или подробно консультируем вас, как ответить.
+              </p>
+            </div>
+          </article>
+
+          <article class="step-card">
+            <span class="step-card__number">Шаг 04</span>
+            <div class="step-card__inner">
+              <h3 class="step-card__title">
+                <img src="./images/sobes.svg" width="32" height="32" alt="" class="step-card__image">
+                Собеседование
+              </h3>
+              <p class="step-card__desc">
+                Мы подбираем локацию с минимальными сроками ожидания собеседования и удобной логистикой. Например,
+                Казахстан, Сербия, ОАЭ, Индонезия. Подробно консультируем вас, что и как отвечать, помогаем преодолеть
+                страх перед интервью.
+              </p>
+            </div>
+          </article>
+
+          <article class="step-card step-card--color">
+            <span class="step-card__number">Шаг 05</span>
+            <div class="step-card__inner">
+              <h3 class="step-card__title">
+                <img src="./images/step5.svg" width="32" height="32" alt="" class="step-card__image">
+                Вы получаете ВНЖ
+              </h3>
+              <p class="step-card__desc">
+                Мы готовим для вас финальный пакет документов, самостоятельно записываем вас во все госорганы и
+                объясняем алгоритм действий на месте. Вы получаете ВНЖ и вносите последний платеж за наши услуги.
+              </p>
+            </div>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <section id="reserch" class="consultation consultation--es consultation--reverse">
+      <div class="container consultation__inner">
+        <div class="consultation__content">
+          <h2 class="consultation__title">
+            Поможем начать и пройдем этот пусть вместе с вами!
+          </h2>
+          <p class="consultation__desc">
+            Мы полностью погружаемся в ваш кейс и постоянно мониторим изменения в законах США. Используем самые свежие
+            указы органов власти, которые могут нам помочь.
+          </p>
+          <a href="#feedback" class="btn btn--image">
+            Записаться на Консультацию
+            <span class="btn__image ">
+              <img src="./images/teleg-blue.svg" alt="telega">
+            </span>
+          </a>
+        </div>
+        <div class="consultation__image">
+          <img class="consultation__image-img" src="./images/const.webp" alt="Консультация Movly" lazyload>
         </div>
       </div>
     </section>
@@ -352,11 +452,11 @@
         <div class="about__grid">
 
           <div class="about__card about__card--intro">
-            <h2 class="about__title">Мы много снимаем и рассказываем
-              о получении ВНЖ в разных странах</h2>
+            <h2 class="about__title">
+              Мы много снимаем и рассказываем о получении ВНЖ в США
+            </h2>
             <p class="about__text">
-              Мы много снимаем и рассказываем <br>
-              о получении ВНЖ в разных странах
+              Нашей экспертизе <b>доверяют тысячи подписчиков</b> на разных площадках!
             </p>
           </div>
 
@@ -502,7 +602,7 @@
     </section>
 
 
-    <section id="faq" class="section faq">
+    <section id="faq" class="section faq faq--us">
       <div class="container">
         <h2 class="section__subhead faq__title">
           Эти вопросы нам часто задают новые клиенты
@@ -539,8 +639,7 @@
                 <div class="faq-item__inner">
                   <p class="faq-item__answer">
                     По нашей статистике, более 95% клиентов успешно получают ВНЖ в США и 99% в страны Европы.
-                    Мы не подаем
-                    слабые кейсы и тщательно готовим каждого клиента.
+                    Мы не подаем слабые кейсы и тщательно готовим каждого клиента.
                   </p>
                 </div>
               </div>
@@ -557,19 +656,18 @@
               <label class="faq-item__trigger" for="faq3">
                 <span class="faq-item__question">
                   <span class="pic faq-item__f3"></span>
-                  Сколько стоят ваши услуги и какой порядок оплаты?</span>
+
+                  Сколько стоят ваши услуги и какой порядок оплаты?
+                </span>
                 <span class="faq-item__arrow" aria-hidden="true"></span>
               </label>
               <div class="faq-item__content">
                 <div class="faq-item__inner">
                   <p class="faq-item__answer">
-                    У нас есть фиксированные стоимости для получения ВНЖ по разным программам и странам. Мы называем вам
-                    стоимость, когда понимаем, куда вы планируете переехать и по какой программе.
-                  </p>
-                  <p class="faq-item__answer">
-                    При заключении договора вы платите только 30-50% от стоимости по договору, остальное — когда уже
-                    будет
-                    точно понятно, что вы получите ВНЖ.
+                    Кроме стоимости наших услуг нужно будет оплатить пошлины и другие платежи, которые необходимы для
+                    получения ВНЖ. При необходимости — PR активности, подготовку и разработку других документов,
+                    например, бизнес-плана.
+
                   </p>
                 </div>
               </div>
@@ -597,13 +695,13 @@
               <label class="faq-item__trigger" for="faq5">
                 <span class="faq-item__question">
                   <span class="pic faq-item__f5"></span>
-                  Кажется, я не подхожу ни под одну программу</span>
+                  Кажется, я не подхожу ни под одну программу</span>
                 <span class="faq-item__arrow" aria-hidden="true"></span>
               </label>
               <div class="faq-item__content">
                 <div class="faq-item__inner">
                   <p class="faq-item__answer">
-                    Запишитесь на первую бесплатную консультацию. Вы расскажете про свою ситуацию и мы сделаем все
+                    Запишитесь на первую бесплатную консультацию. Вы расскажете про свою ситуацию, и мы сделаем все
                     возможное, чтобы вы получили ВНЖ в той стране, куда хотите переехать!
                   </p>
                 </div>
@@ -614,80 +712,7 @@
       </div>
     </section>
 
-    <section id="feedback" class="section form-section">
-      <div class="container">
-
-
-        <div class="form-section__inner">
-          <div class="form-section__left">
-            <h2 class="section__subhead form-section__title">
-              Вы можете доверить нам <br>
-              получение ВНЖ для вас!
-            </h2>
-            <form class="form" action="#" method="POST">
-
-
-
-              <div class="form__group">
-                <input class="form__input" type="text" id="name" name="name" placeholder="Введите ваше имя" required />
-              </div>
-
-              <div class="form__group">
-                <label class="form-radio">
-                  <input class="form-radio__check" value="telegram" type="radio" name="contact-type" />
-                  <span class="form-radio__icon"></span>
-
-                  <span class="form-radio__title">Телеграм</span>
-                </label>
-
-                <div class="form__input-wrapper">
-                  <span class="form__input-prefix">@</span>
-                  <input class="form__input form__input--with-prefix" type="text" id="telegram" name="telegram"
-                    placeholder="yourprofile" disabled />
-                </div>
-              </div>
-
-              <div class="form__group">
-                <label class="form-radio">
-                  <input class="form-radio__check" value="phone" type="radio" name="contact-type" checked />
-                  <span class="form-radio__icon"></span>
-
-                  <span class="form-radio__title">Телефон</span>
-                </label>
-
-                <input class="form__input" type="tel" id="phone" name="phone" placeholder="+7 000 000 00 00" required />
-              </div>
-
-              <div class="form__group form__group--checkbox">
-                <label class="form__checkbox">
-                  <input class="form__checkbox-input" type="checkbox" name="agreement" required />
-                  <span class="form__checkbox-custom"></span>
-                  <span class="form__checkbox-text">
-                    Я согласен с условиями <a href="#" class="form__link">Политики Конфиденциальности</a>
-                  </span>
-                </label>
-              </div>
-
-              <button class="form__submit btn btn--primary" type="submit" disabled>
-                ОТПРАВИТЬ
-              </button>
-            </form>
-
-            <div class="modal" id="formSuccessModal" aria-hidden="true">
-              <div class="modal__overlay" data-modal-close></div>
-              <div class="modal__content" role="dialog" aria-modal="true" aria-labelledby="formSuccessTitle">
-                <button class="modal__close" type="button" data-modal-close aria-label="Закрыть"></button>
-                <h2 class="modal__title" id="formSuccessTitle">Заявка отправлена</h2>
-                <p class="modal__text">Спасибо! Мы получили вашу заявку и свяжемся с вами в ближайшее время.</p>
-              </div>
-            </div>
-          </div>
-          <div class="form-section__right">
-            <img src="./images/feedback-2x.webp" class="form-section__img" alt="Feedback" lazyload>
-          </div>
-        </div>
-      </div>
-    </section>
+    @@include("./template/form-section.html")
   </main>
 
   @@include("./template/footer.html") @@include("./template/scripts.html")

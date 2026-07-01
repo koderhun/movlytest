@@ -1681,9 +1681,10 @@ section {
   }
 
   &__link {
-    color: var(--color-accent);
+    color: var(--color-heading);
     text-decoration: none;
-    font-weight: 400;
+    font-weight: 500;
+    font-family: var(--font-family-primary);
     transition: color 0.2s ease;
 
     &:hover {
@@ -2115,7 +2116,8 @@ body.modal-open {
   }
 
   &__features {
-    display: flex;
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
     gap: 8px;
     padding-top: 62px;
   }
