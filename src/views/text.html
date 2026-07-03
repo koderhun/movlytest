@@ -1,0 +1,112 @@
+<!DOCTYPE html>
+<html lang="ru">
+
+<head>
+  <meta charset="utf-8" />
+  <title>Starter</title>
+  @@include("./template/head.html")
+</head>
+
+<body>
+  @@include("./template/header.html")
+
+  <main>
+    <article class="content-page">
+      <div class="container">
+        <header class="content-page__header">
+          <h1 class="content-page__title">Заголовок страницы</h1>
+          <div class="content-page__meta">
+            <time class="content-page__date" datetime="2026-06-30">30 июня 2026</time>
+            <span class="content-page__author">Автор: Movly</span>
+          </div>
+        </header>
+
+        <div class="content-page__body">
+          <h2>Заголовок H2</h2>
+          <p>
+            Это пример текстового контента, который выводится из WYSIWYG редактора.
+            Здесь могут быть различные элементы форматирования.
+          </p>
+
+          <h3>Заголовок H3</h3>
+          <p>
+            Текст с <strong>жирным выделением</strong>, <em>курсивом</em>,
+            <u>подчеркиванием</u> и <s>зачеркиванием</s>. Также можно использовать
+            <a href="#">ссылки</a> и <span class="highlight">выделенные фрагменты</span>.
+          </p>
+
+          <ul>
+            <li>Маркированный список</li>
+            <li>Второй пункт списка</li>
+            <li>Третий пункт с <strong>выделением</strong></li>
+          </ul>
+
+          <ol>
+            <li>Нумерованный список</li>
+            <li>Второй пункт</li>
+            <li>Третий пункт</li>
+          </ol>
+
+          <blockquote>
+            <p>
+              Это цитата. Она может содержать важную информацию или высказывание,
+              которое автор хочет выделить.
+            </p>
+            <cite>— Имя автора цитаты</cite>
+          </blockquote>
+
+          <figure>
+            <img src="https://picsum.photos/seed/content/800/400" alt="Пример изображения" />
+            <figcaption>Подпись к изображению</figcaption>
+          </figure>
+
+          <h4>Заголовок H4</h4>
+          <p>
+            Текст с <code>инлайн-кодом</code> и блоком кода:
+          </p>
+
+          <pre><code>
+                .example {
+                    display: flex;
+                    align-items: center;
+                    gap: 16px;
+                }
+            </code></pre>
+
+          <table>
+            <thead>
+              <tr>
+                <th>Заголовок 1</th>
+                <th>Заголовок 2</th>
+                <th>Заголовок 3</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td>Ячейка 1</td>
+                <td>Ячейка 2</td>
+                <td>Ячейка 3</td>
+              </tr>
+              <tr>
+                <td>Данные 1</td>
+                <td>Данные 2</td>
+                <td>Данные 3</td>
+              </tr>
+            </tbody>
+          </table>
+
+          <hr />
+
+          <p>
+            Это пример текста с <small>маленьким шрифтом</small> и
+            <mark>выделенным маркером</mark>.
+          </p>
+        </div>
+      </div>
+    </article>
+  </main>
+
+  @@include("./template/footer.html") @@include("./template/scripts.html")
+</body>
+
+</html>
