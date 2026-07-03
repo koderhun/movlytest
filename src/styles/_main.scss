@@ -1833,13 +1833,10 @@ body.modal-open {
     &:focus {
       opacity: 0.8;
     }
+  }
 
-    &--tg {
-      background-image: url($img + 'tg-img.svg');
-    }
-    &--yt {
-      background-image: url($img + 'yt-img.svg');
-    }
+  img {
+    object-fit: cover;
   }
 }
 
