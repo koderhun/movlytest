@@ -136,7 +136,7 @@ h3 {
   width: fit-content;
   transition: var(--transition-line);
   font-family: var(--font-family-primary);
-  font-weight: 600;
+  font-weight: 500;
 
   &__image {
     position: absolute;
@@ -823,6 +823,8 @@ section {
   overflow: hidden;
   background-color: white;
   border-radius: 56px;
+  text-align: center;
+  padding: 0 24px;
 }
 
 .client-link {
@@ -1763,11 +1765,16 @@ body.modal-open {
     width: min(540px, calc(100% - 32px));
     padding: 40px 32px;
     border-radius: 32px;
-    background: rgba(255, 255, 255, 80%);
+    background: rgba(255, 255, 255, 0.8);
     backdrop-filter: blur(4px);
     box-shadow: 0 40px 80px rgba(15, 23, 42, 0.16);
     z-index: 1;
     text-align: center;
+
+    @media (max-width: 600px) {
+      background: rgba(255, 255, 255, 1);
+      backdrop-filter: blur(0px);
+    }
   }
 
   &__close {

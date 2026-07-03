@@ -295,14 +295,28 @@ $img: '../images/';
 @media (max-width: 960px) {
   .hero__inner {
     flex-direction: column;
+    margin-bottom: 24px;
   }
 
   .hero__content {
     max-width: 100%;
+    min-width: 100px;
   }
 }
 
 @media (max-width: 768px) {
+  .clients--es {
+    margin-bottom: 24px;
+  }
+
+  .steps--es {
+    margin-top: 24px;
+  }
+
+  .consultation .btn {
+    font-size: 16px;
+  }
+
   /* UI Kit */
   .ui-kit {
     padding: 20px 0;
@@ -408,11 +422,10 @@ $img: '../images/';
       opacity: 0;
       border-radius: 24px;
       transform: translateY(-10px);
-      background: #fff;
 
       // glass
 
-      background: rgba(255, 255, 255, 0.9);
+      background: rgba(255, 255, 255, 1);
       // background-color: hsl(220.8deg 100% 95.1% / 70%);
       backdrop-filter: blur(20px) saturate(180%);
       -webkit-backdrop-filter: blur(20px) saturate(180%);
@@ -949,6 +962,10 @@ $img: '../images/';
       max-width: 100%;
     }
   }
+
+  .hero__content {
+    min-width: 100px;
+  }
 }
 
 @media (max-width: 640px) {
@@ -1004,5 +1021,10 @@ $img: '../images/';
 
   .client-card__image {
     width: 100%;
+  }
+
+  .benefits__grid {
+    grid-template-columns: 1fr;
+    margin-bottom: 24px;
   }
 }
