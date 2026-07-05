@@ -101,9 +101,13 @@ $(() => {
 
   // header sticky
 
+  // не показываем фиксированное меню на главной
+
+  const isHomePage = document.body.classList.contains('page-index')
+
   const header = document.querySelector('.header')
 
-  if (header) {
+  if (!isHomePage && header) {
     let lastScrollY = window.scrollY
     let ticking = false
 

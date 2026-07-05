@@ -2,7 +2,8 @@ $img: '../images/';
 
 @media (max-width: 1430px) {
   .header {
-    padding-top: 16px;
+    padding-top: 8px;
+
     .container {
       padding-left: 24px;
       padding-right: 24px;
@@ -77,7 +78,52 @@ $img: '../images/';
   .section__subhead {
     margin-bottom: 32px;
   }
+}
 
+@media (max-width: 1300px) {
+  .hero__feature-icon {
+    margin-bottom: 16px;
+  }
+}
+
+@media (max-width: 1200px) {
+  .step-card {
+    display: flex;
+    justify-content: flex-end;
+
+    &__inner {
+      margin: 0;
+    }
+  }
+
+  .about__card {
+    &--intro {
+      padding: 32px;
+    }
+  }
+
+  .about__image {
+    max-width: 200px;
+    height: 100%;
+    object-fit: cover;
+  }
+
+  .form-section__left {
+    padding: 24px;
+    max-width: 640px;
+  }
+
+  .hero__feature {
+    padding: 16px;
+  }
+
+  .hero__inner {
+    padding-left: 24px;
+    padding-right: 24px;
+  }
+}
+
+@media (max-width: 1110px) {
   .about__card--image,
   .about__card--intro,
   .about__card--experts {
@@ -108,50 +154,11 @@ $img: '../images/';
   .about--es .about__icon-wrapper {
     margin-bottom: 32px;
   }
-}
 
-@media (max-width: 1300px) {
-  .hero__feature-icon {
-    margin-bottom: 16px;
-  }
-}
-
-@media (max-width: 1200px) {
-  .step-card {
-    display: flex;
-    justify-content: flex-end;
-
-    &__inner {
-      margin: 0;
-    }
+  .about--talk {
+    margin-top: 52px;
   }
 
-  .about__card {
-    &--intro {
-      padding: 32px;
-    }
-  }
-
-  .about__image {
-    max-width: 200px;
-  }
-
-  .form-section__left {
-    padding: 24px;
-    max-width: 640px;
-  }
-
-  .hero__feature {
-    padding: 16px;
-  }
-
-  .hero__inner {
-    padding-left: 24px;
-    padding-right: 24px;
-  }
-}
-
-@media (max-width: 1110px) {
   .step-card {
     justify-content: center;
     flex-direction: column;
@@ -488,8 +495,8 @@ $img: '../images/';
   }
 
   .header--scrolled .container {
-    margin-left: 32px;
-    margin-right: 32px;
+    margin-left: 16px;
+    margin-right: 16px;
     padding-right: 24px;
   }
 
@@ -963,6 +970,18 @@ $img: '../images/';
     }
   }
 
+  .footer__policy {
+    font-size: 16px;
+  }
+
+  .footer__legal-text {
+    font-size: 14px;
+  }
+
+  .footer__copyright {
+    font-size: 12px;
+  }
+
   .hero__content {
     min-width: 100px;
   }
@@ -1003,6 +1022,18 @@ $img: '../images/';
 
   .footer__legal {
     text-align: center;
+  }
+
+  .hero__features {
+    grid-template-columns: repeat(1, 1fr);
+  }
+
+  .hero__right {
+    flex-direction: column-reverse;
+  }
+  .hero__feature {
+    height: auto;
+    padding: 48px 24px;
   }
 }
 
