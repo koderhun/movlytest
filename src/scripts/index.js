@@ -103,9 +103,13 @@ $(() => {
 
   // не показываем фиксированное меню на главной
 
-  const isHomePage = document.body.classList.contains('page-index')
+  const isHomePage =
+    window.location.pathname === '/' || window.location.pathname === ''
+  console.log('isHomePage:', isHomePage)
 
   const header = document.querySelector('.header')
+
+  const body = document.querySelector('body')
 
   if (!isHomePage && header) {
     let lastScrollY = window.scrollY
@@ -113,12 +117,14 @@ $(() => {
 
     const updateHeader = () => {
       const currentScrollY = window.scrollY
-      const scrollThreshold = 50
+      const scrollThreshold = 60
 
       if (currentScrollY > scrollThreshold) {
         header.classList.add('header--scrolled')
+        body.classList.add('page-scrolled')
       } else {
         header.classList.remove('header--scrolled')
+        body.classList.remove('page-scrolled')
       }
 
       lastScrollY = currentScrollY

@@ -361,8 +361,16 @@ header:not(.header--scrolled) .header__right {
   top: calc(100%);
 }
 
+body {
+  // transition: padding-top 0.4s ease;
+}
+
+.page-scrolled > main {
+  padding-top: 72px;
+}
+
 .header {
-  position: sticky;
+  position: relative;
   padding-top: 30px;
   // transition: var(--transition-base);
   z-index: 100;
@@ -377,7 +385,10 @@ header:not(.header--scrolled) .header__right {
   }
 
   &--scrolled {
+    position: fixed;
     top: 0;
+    left: 0;
+    right: 0;
     padding-top: 0;
 
     .container {
