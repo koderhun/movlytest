@@ -1409,7 +1409,7 @@ section {
     transition: color 0.25s ease;
     letter-spacing: -0.01em;
     cursor: pointer;
-    line-height: 1;
+    line-height: 1.2;
   }
 
   &__arrow {
@@ -1914,11 +1914,12 @@ body.modal-open {
     a {
       color: var(--color-body-text);
       text-decoration: none;
-      transition: color 0.2s ease;
+      transition: var(--transition-base);
 
       &:hover {
         color: var(--color-body-hover);
         text-decoration: underline;
+        opacity: 0.8;
       }
     }
   }

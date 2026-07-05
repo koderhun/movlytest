@@ -312,6 +312,9 @@ $img: '../images/';
 }
 
 @media (max-width: 768px) {
+  .page-scrolled > main {
+    padding-top: 144px;
+  }
   .clients--es {
     margin-bottom: 24px;
   }
@@ -579,7 +582,8 @@ $img: '../images/';
   .about--talk .about__card--intro {
     padding: 34px 32px;
 
-    padding-bottom: 180px;
+    padding-bottom: 140px;
+    min-height: auto;
     background-position: bottom -60px right;
   }
 
@@ -985,6 +989,10 @@ $img: '../images/';
   .hero__content {
     min-width: 100px;
   }
+
+  .benefits {
+    padding-top: 32px;
+  }
 }
 
 @media (max-width: 640px) {
@@ -1041,10 +1049,6 @@ $img: '../images/';
    MOBILE (max-width: 480px)
    ============================================== */
 @media (max-width: 480px) {
-  .about__card--intro {
-    min-height: 540px;
-  }
-
   .client-card__image-inner {
     padding: 0;
     max-height: 100%;
@@ -1057,5 +1061,21 @@ $img: '../images/';
   .benefits__grid {
     grid-template-columns: 1fr;
     margin-bottom: 24px;
+  }
+
+  .btn--large {
+    font-size: 16px;
+    padding-left: 20px;
+  }
+
+  .consultation .btn {
+    font-size: 15px;
+    white-space: nowrap;
+    padding-left: 20px;
+  }
+
+  .form__group--checkbox {
+    padding-bottom: 0;
+    padding-top: 8px;
   }
 }
