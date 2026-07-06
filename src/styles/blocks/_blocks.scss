@@ -11,8 +11,6 @@ $img: '../images/';
     &.slide-4,
     &.slide-5 {
       background-color: #fff;
-      background-position: center right;
-      background-size: auto 100%;
       background-repeat: no-repeat;
       transition: var(--transition-base);
     }
@@ -80,7 +78,6 @@ $img: '../images/';
   }
 
   &__content {
-    background: white;
     text-align: center;
     height: 100%;
     min-height: 220px;
