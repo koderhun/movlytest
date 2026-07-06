@@ -43,6 +43,7 @@ $img: '../images/';
 .slider-section {
   position: relative;
   overflow: hidden;
+  min-width: 100%;
 
   &__container {
     margin: 0 auto;

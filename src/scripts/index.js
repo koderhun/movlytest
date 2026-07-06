@@ -46,15 +46,12 @@ $(() => {
 
     const swiper = new Swiper('.slider-section__container', {
       slidesPerView: 5,
-      centeredSlides: true,
-      initialSlide: 2,
+      centeredSlides: true, // центральный слайд активный
+      initialSlide: 2, // стартуем с центра
       spaceBetween: 8,
       speed: 600,
-      // autoplay: {
-      //   delay: 19000,
-      //   disableOnInteraction: false,
-      //   pauseOnMouseEnter: true,
-      // },
+      loop: true, // бесконечный
+      loopedSlides: 10, // рекомендуется для 5 видимых слайдов
 
       navigation: {
         nextEl: '.slider-section__button--next',
@@ -63,20 +60,25 @@ $(() => {
 
       breakpoints: {
         320: {
-          slidesPerView: 1.5,
+          slidesPerView: 1.8,
+          centeredSlides: true,
         },
         480: {
-          slidesPerView: 2,
+          slidesPerView: 2.5,
+          centeredSlides: true,
         },
         768: {
-          slidesPerView: 3,
+          slidesPerView: 3.5,
+          centeredSlides: true,
         },
         1024: {
-          slidesPerView: 5,
+          slidesPerView: 5, // строго 5 слайдов
+          centeredSlides: true,
+          spaceBetween: 8,
         },
       },
 
-      // События Swiper
+      // События
       on: {
         init: function () {
           updateBodyIndex(this)
