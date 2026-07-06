@@ -777,6 +777,17 @@ $img: '../images/';
 
   .step-card__title {
     font-size: 16px;
+    gap: 8px;
+    line-height: 1.1;
+  }
+
+  .profile__line {
+    flex-direction: column;
+    align-items: flex-start;
+  }
+
+  .step-card__inner {
+    padding: 24px;
   }
 
   .step-card__desc {
@@ -1070,12 +1081,21 @@ $img: '../images/';
 
   .consultation .btn {
     font-size: 15px;
-    white-space: nowrap;
     padding-left: 20px;
   }
 
   .form__group--checkbox {
     padding-bottom: 0;
     padding-top: 8px;
+  }
+
+  .slider1 {
+    padding-top: 40px;
+  }
+
+  .clients .container {
+    margin: 0;
+    padding-left: 12px;
+    padding-right: 12px;
   }
 }
