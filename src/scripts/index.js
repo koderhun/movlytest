@@ -396,7 +396,7 @@ $(() => {
 
   setContactMode(
     document.querySelector('input[name="contact-type"]:checked')?.value ||
-      'phone',
+      'telegram',
   )
   validateForm()
 
