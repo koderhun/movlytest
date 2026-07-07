@@ -348,6 +348,8 @@ $(() => {
 
   // start form validation
   if (formElement) {
+    const feedbackSection = document.getElementById('feedback')
+
     formElement.addEventListener('submit', async (event) => {
       event.preventDefault()
 
@@ -383,7 +385,13 @@ $(() => {
 
         openModal()
         formElement.reset()
-        setContactMode('phone')
+        setContactMode('telegram')
+
+        feedbackSection.scrollIntoView({
+          behavior: 'smooth',
+          block: 'start',
+        })
+
         validateForm()
       } catch (error) {
         console.error('Ошибка отправки формы', error)
