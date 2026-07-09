@@ -348,7 +348,7 @@ $(() => {
 
   // start form validation
   if (formElement) {
-    const feedbackSection = document.getElementById('feedback')
+    // const feedbackSection = document.getElementById('feedback')
 
     formElement.addEventListener('submit', async (event) => {
       event.preventDefault()
@@ -387,16 +387,18 @@ $(() => {
         formElement.reset()
         setContactMode('telegram')
 
-        feedbackSection.scrollIntoView({
-          behavior: 'smooth',
-          block: 'start',
-        })
+        // feedbackSection.scrollIntoView({
+        //   behavior: 'smooth',
+        //   block: 'start',
+        // })
 
         validateForm()
       } catch (error) {
         console.error('Ошибка отправки формы', error)
         alert('Не удалось отправить заявку. Попробуйте позже.')
       }
+
+      return false
     })
   }
 

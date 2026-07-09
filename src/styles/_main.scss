@@ -1745,14 +1745,14 @@ section {
   }
 }
 
-body.modal-open {
-  position: fixed;
-  overflow-y: scroll;
-  top: 0;
-  bottom: 0;
-  left: 0;
-  right: 0;
-}
+// body.modal-open {
+//   position: fixed;
+//   overflow-y: scroll;
+//   top: 0;
+//   bottom: 0;
+//   left: 0;
+//   right: 0;
+// }
 
 .modal {
   position: fixed;
@@ -1761,6 +1761,10 @@ body.modal-open {
   align-items: center;
   justify-content: center;
   z-index: 9999;
+  top: 0;
+  bottom: 0;
+  left: 0;
+  right: 0;
 
   &--visible {
     display: flex;
