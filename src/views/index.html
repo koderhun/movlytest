@@ -346,8 +346,12 @@
           </a>
         </div>
         <div class="consultation__image">
-          <img class="consultation__image-img" src="./images/consultation-image-reverse-2x.webp"
-            alt="Консультация Movly" lazyload>
+
+          <picture>
+            <source srcset="./images/consultation-image-reverse-2x-mobile.webp" media="(max-width: 480px)">
+            <img class="consultation__image-img" src="./images/consultation-image-reverse-2x.webp"
+              alt="Консультация Movly" lazyload>
+          </picture>
         </div>
       </div>
     </section>
@@ -513,7 +517,10 @@
               </a>
             </div>
             <div class="consultation__image">
-              <img class="consultation__image-img" src="./images/review-2x.webp" alt="Консультация Movly" lazyload>
+              <picture>
+                <source srcset="./images/review-2x-mobile.webp" media="(max-width: 480px)">
+                <img class="consultation__image-img" src="./images/review-2x.jpg" alt="Консультация Movly" lazyload>
+              </picture>
             </div>
           </div>
         </div>
@@ -566,7 +573,7 @@
               </div>
             </div>
 
-            <div class="faq-item">
+            <div class="faq-item faq-item--desktop">
               <img src="./images/fq-img-2x.webp" alt="" class="faq-item__img">
             </div>
           </div>
@@ -629,6 +636,14 @@
                 </div>
               </div>
             </div>
+
+            <div class="faq-item faq-item--mobile">
+              <picture>
+                <source srcset="./images/fq-img-2x-mobile.webp" media="(max-width: 480px)">
+                <img class="consultation__image-img" src="./images/fq-img-2x.webp" alt="Консультация Movly" lazyload>
+              </picture>
+            </div>
+
           </div>
         </div>
       </div>

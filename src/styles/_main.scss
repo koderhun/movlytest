@@ -1304,6 +1304,10 @@ section {
   position: relative;
   overflow: hidden;
 
+  &--mobile {
+    display: none;
+  }
+
   .pic {
     margin-top: -5px;
     background-size: auto;
