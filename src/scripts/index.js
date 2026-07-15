@@ -60,7 +60,7 @@ $(() => {
 
       breakpoints: {
         320: {
-          slidesPerView: 1.8,
+          slidesPerView: 1.4,
           centeredSlides: true,
         },
         480: {
