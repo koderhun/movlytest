@@ -52,6 +52,11 @@ $(() => {
       speed: 600,
       loop: true, // бесконечный
       loopedSlides: 10, // рекомендуется для 5 видимых слайдов
+      autoplay: {
+        delay: 4000, // задержка между слайдами в мс
+        disableOnInteraction: false, // не останавливать после ручного переключения
+        pauseOnMouseEnter: true, // пауза при наведении мыши (опционально)
+      },
 
       navigation: {
         nextEl: '.slider-section__button--next',
