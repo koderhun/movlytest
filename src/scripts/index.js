@@ -2,17 +2,6 @@ $(() => {
   'use strict'
 
   function initSwiper() {
-    if (typeof Swiper === 'undefined') {
-      setTimeout(initSwiper, 100)
-      return
-    }
-
-    const container = document.querySelector('.slider-section__container')
-    if (!container) {
-      setTimeout(initSwiper, 100)
-      return
-    }
-
     // Функция обновления data-атрибута на body
     function updateBodyIndex(swiperInstance) {
       // Получаем активный слайд
@@ -38,8 +27,6 @@ $(() => {
 
           // Добавляем новый класс
           $banerContainer.classList.add(`slide-${dataIndex}`)
-
-          console.log(`Активный слайд: ${dataIndex}`) // Для отладки
         }
       }
     }
@@ -87,6 +74,13 @@ $(() => {
       on: {
         init: function () {
           updateBodyIndex(this)
+          console.log(
+            'Swiper инициализирован, активный слайд:',
+            this.slides[this.activeIndex].getAttribute('data-index'),
+          )
+          // Показать слайдер после инициализации
+          document.querySelector('.slider1').style.display = ''
+          document.querySelector('.baner__btnblock').style.paddingBottom = '0'
         },
         slideChange: function () {
           updateBodyIndex(this)
