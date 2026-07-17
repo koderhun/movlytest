@@ -39,11 +39,11 @@ $(() => {
       speed: 600,
       loop: true, // бесконечный
       loopedSlides: 10, // рекомендуется для 5 видимых слайдов
-      autoplay: {
-        delay: 4000, // задержка между слайдами в мс
-        disableOnInteraction: false, // не останавливать после ручного переключения
-        pauseOnMouseEnter: true, // пауза при наведении мыши (опционально)
-      },
+      // autoplay: {
+      //   delay: 4000, // задержка между слайдами в мс
+      //   disableOnInteraction: false, // не останавливать после ручного переключения
+      //   pauseOnMouseEnter: true, // пауза при наведении мыши (опционально)
+      // },
 
       navigation: {
         nextEl: '.slider-section__button--next',
@@ -410,4 +410,33 @@ $(() => {
   validateForm()
 
   //   // акардион
+
+  const isMobile = window.matchMedia('(max-width: 767px)').matches
+
+  if (isMobile) {
+    // предварительная загрузка картинок карты.
+    function preloadBanerBackgrounds() {
+      const imgPath = '/images/'
+      const files = [
+        'ni-mobile-bg.svg',
+        'uk-mobile-bg.svg',
+        'fr-mobile-bg.svg',
+        'pt-mobile-bg.svg',
+        'es-mobile-bg.svg',
+      ]
+
+      return Promise.all(
+        files.map((file) => {
+          return new Promise((resolve) => {
+            const img = new Image()
+            img.onload = img.onerror = resolve
+            img.src = imgPath + file
+          })
+        }),
+      )
+    }
+
+    // Использование
+    preloadBanerBackgrounds()
+  }
 })
