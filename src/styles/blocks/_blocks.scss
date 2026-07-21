@@ -2,34 +2,44 @@
 
 $img: '../images/';
 
-.baner {
-  &__container {
-    &.slide-0,
-    &.slide-1,
-    &.slide-2,
-    &.slide-3,
-    &.slide-4,
-    &.slide-5 {
-      background-color: #fff;
-      background-repeat: no-repeat;
-      transition: var(--transition-base);
-    }
+.baner__container {
+  opacity: 0;
+
+  &.slide-0,
+  &.slide-1,
+  &.slide-2,
+  &.slide-3,
+  &.slide-4,
+  &.slide-5 {
+    -webkit-transform: translateZ(0);
+    transform: translateZ(0);
+    -webkit-backface-visibility: hidden;
+    backface-visibility: hidden;
+
+    background-color: #fff;
+    background-repeat: no-repeat;
+    transition: var(--transition-base);
   }
 }
 
 .slide-0 {
+  opacity: 1;
   background-image: url($img + 'ni-bg.svg');
 }
 .slide-1 {
+  opacity: 1;
   background-image: url($img + 'uk-bg.svg');
 }
 .slide-2 {
+  opacity: 1;
   background-image: url($img + 'fr-bg.svg');
 }
 .slide-3 {
+  opacity: 1;
   background-image: url($img + 'pt-bg.svg');
 }
 .slide-4 {
+  opacity: 1;
   background-image: url($img + 'es-bg.svg');
 }
 
