@@ -423,6 +423,11 @@ $(() => {
         'fr-mobile-bg.svg',
         'pt-mobile-bg.svg',
         'es-mobile-bg.svg',
+        // 'ni-bg.svg',
+        // 'uk-bg.svg',
+        // 'fr-bg.svg',
+        // 'pt-bg.svg',
+        // 'es-bg.svg',
       ]
 
       return Promise.all(
