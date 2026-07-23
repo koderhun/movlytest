@@ -26,7 +26,10 @@ $(() => {
           })
 
           // Добавляем новый класс
-          $banerContainer.classList.add(`slide-${dataIndex}`)
+          // Use requestAnimationFrame for smoother updates on WebKit
+          requestAnimationFrame(() => {
+            $banerContainer.classList.add(`slide-${dataIndex}`)
+          })
         }
       }
     }
