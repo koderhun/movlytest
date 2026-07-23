@@ -411,35 +411,31 @@ $(() => {
 
   //   // акардион
 
-  const isMobile = window.matchMedia('(max-width: 767px)').matches
+  // предварительная загрузка картинок карты.
+  function preloadBanerBackgrounds() {
+    const imgPath = '/images/'
+    const files = [
+      'ni-mobile-bg.svg',
+      'uk-mobile-bg.svg',
+      'fr-mobile-bg.svg',
+      'pt-mobile-bg.svg',
+      'es-mobile-bg.svg',
+      'ni-bg.svg',
+      'uk-bg.svg',
+      'fr-bg.svg',
+      'pt-bg.svg',
+      'es-bg.svg',
+    ]
 
-  if (isMobile) {
-    // предварительная загрузка картинок карты.
-    function preloadBanerBackgrounds() {
-      const imgPath = '/images/'
-      const files = [
-        'ni-mobile-bg.svg',
-        'uk-mobile-bg.svg',
-        'fr-mobile-bg.svg',
-        'pt-mobile-bg.svg',
-        'es-mobile-bg.svg',
-        // 'ni-bg.svg',
-        // 'uk-bg.svg',
-        // 'fr-bg.svg',
-        // 'pt-bg.svg',
-        // 'es-bg.svg',
-      ]
-
-      return Promise.all(
-        files.map((file) => {
-          return new Promise((resolve) => {
-            const img = new Image()
-            img.onload = img.onerror = resolve
-            img.src = imgPath + file
-          })
-        }),
-      )
-    }
+    return Promise.all(
+      files.map((file) => {
+        return new Promise((resolve) => {
+          const img = new Image()
+          img.onload = img.onerror = resolve
+          img.src = imgPath + file
+        })
+      }),
+    )
 
     // Использование
     preloadBanerBackgrounds()
