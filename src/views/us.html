@@ -85,7 +85,12 @@
           </a>
         </div>
         <div class="consultation__image">
-          <img class="consultation__image-img" src="./images/consultation-image.webp" alt="Консультация Movly" lazyload>
+
+          <picture>
+            <source srcset="./images/consultation-image-mobile.webp" media="(max-width: 480px)">
+            <img class="consultation__image-img" src="./images/consultation-image.webp" alt="Консультация Movly"
+              lazyload>
+          </picture>
         </div>
       </div>
     </section>
@@ -443,6 +448,7 @@
         </div>
         <div class="consultation__image">
           <img class="consultation__image-img" src="./images/const.webp" alt="Консультация Movly" lazyload>
+
         </div>
       </div>
     </section>

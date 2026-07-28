@@ -384,7 +384,6 @@ $img: '../images/';
       position: relative;
       overflow: visible;
       z-index: 10;
-      padding-top: 30px;
     }
 
     &__burger {
@@ -1150,7 +1149,7 @@ $img: '../images/';
   }
 
   .consultation__image {
-    height: 328px;
+    height: auto;
   }
 
   .consultation__image img {
