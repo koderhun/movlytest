@@ -51,6 +51,9 @@ body {
   margin: 0;
   padding: 0;
   font-size: 16px;
+
+  min-width: 360px;
+  overflow-x: auto;
 }
 
 img {
@@ -527,6 +530,10 @@ body {
 
     font-style: normal;
   }
+}
+
+.baner__container {
+  padding-top: 60px;
 }
 
 section {

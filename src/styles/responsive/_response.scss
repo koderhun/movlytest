@@ -1095,6 +1095,7 @@ $img: '../images/';
   .form__group--checkbox {
     padding-bottom: 0;
     padding-top: 8px;
+    margin-left: 0;
   }
 
   .slider1 {
@@ -1373,11 +1374,16 @@ $img: '../images/';
   .step-card__inner {
     padding: 36px 24px;
   }
-}
 
-// @media (max-width: 360px) {
-//   html {
-//     min-width: 360px;
-//     overflow-x: auto;
-//   }
-// }
+  .about--init .about__card,
+  .steps .container,
+  .baner .container,
+  .clients .container {
+    padding-left: 16px;
+    padding-right: 16px;
+  }
+
+  .form__input-prefix {
+    top: 55%;
+  }
+}
