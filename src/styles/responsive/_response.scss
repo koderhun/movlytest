@@ -1259,6 +1259,10 @@ $img: '../images/';
     display: block;
   }
 
+  .form-section__right {
+    display: none;
+  }
+
   .form__input {
     margin-top: 5px;
   }
@@ -1284,3 +1288,96 @@ $img: '../images/';
     gap: 32px;
   }
 }
+// эти стили уже не затрагивают макет. И сделаны визуал для малых экранов от 360 до 410
+@media (max-width: 410px) {
+  .slider1 {
+    padding-top: 300px;
+  }
+
+  .header-btn__logn-text {
+    display: none;
+  }
+
+  .header-btn-normal__content {
+    padding-left: 30px;
+    padding-right: 25px;
+  }
+
+  .baner__container {
+    padding-bottom: 20px;
+  }
+
+  .about__card--intro {
+    min-height: 0;
+  }
+
+  .about__card {
+    min-height: 0;
+    padding-bottom: 45px;
+  }
+
+  .about__icon-wrapper {
+    margin-bottom: 20px;
+  }
+
+  .about__card--image .about__inner-content {
+    min-height: 0;
+  }
+
+  .about__card--image {
+    padding-bottom: 0px;
+  }
+
+  .about__image {
+    border-radius: 24px;
+  }
+  .client-card__title .clients .container {
+    padding-left: 16px;
+    padding-right: 16px;
+  }
+
+  .client-card__desc {
+    padding: 24px 16px 16px 16px;
+  }
+
+  .client-card__title {
+    padding-left: 16px;
+    padding-right: 16px;
+  }
+
+  .hide-small-mobile {
+    display: none;
+  }
+
+  .about--init .about__card {
+    padding: 40px 24px;
+  }
+
+  .about--init .about__title {
+    margin-top: 10px;
+  }
+
+  .consultation__content {
+    padding-left: 24px;
+    padding-right: 24px;
+  }
+
+  .about--talk .about__card {
+    padding: 36px 24px 36px 24px;
+  }
+
+  .about--talk .about__card--picture {
+    padding: 0;
+  }
+
+  .step-card__inner {
+    padding: 36px 24px;
+  }
+}
+
+// @media (max-width: 360px) {
+//   html {
+//     min-width: 360px;
+//     overflow-x: auto;
+//   }
+// }
