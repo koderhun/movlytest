@@ -1030,11 +1030,16 @@ section {
     display: flex;
     align-items: center;
     justify-content: center;
+
     img {
       height: 100%;
       border-radius: 40px;
       width: 100%;
       object-fit: cover;
+    }
+
+    picture {
+      height: 100%;
     }
   }
 
@@ -2184,3 +2189,16 @@ section {
     gap: 8px;
   }
 }
+
+// test fix
+.hero__inner {
+  max-height: calc(100dvh - 150px); // Оставляем ~130-150px для следующего блока
+}
+.hero__feature {
+  min-height: auto;
+  height: auto;
+}
+.hero__content {
+  min-width: auto;
+}
+// end test fix

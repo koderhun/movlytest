@@ -1102,12 +1102,34 @@ $img: '../images/';
     // padding-top: 40px;
   }
 
+  .about {
+    padding: clamp(24px, 5vh, 48px) 0;
+  }
+
+  .about__card {
+    padding: 20px 16px;
+    min-height: auto;
+  }
+
+  .about__card.about__card--image {
+    padding: 0;
+  }
+
+  .about__card--intro {
+    padding: 20px 16px;
+  }
+
+  .about__icon-wrapper {
+    margin-bottom: 20px;
+  }
+
   .about__card--intro {
     min-height: 582px;
     background-position: right 24px bottom 55px;
   }
   .about__card--image .about__inner-content {
-    min-height: 332px;
+    min-height: 0;
+    padding-bottom: 20px;
   }
 
   .about__inner-image {
@@ -1314,11 +1336,8 @@ $img: '../images/';
 
   .about__card {
     min-height: 0;
-    padding-bottom: 45px;
-  }
-
-  .about__icon-wrapper {
-    margin-bottom: 20px;
+    padding-top: 32px;
+    padding-bottom: 32px;
   }
 
   .about__card--image .about__inner-content {
