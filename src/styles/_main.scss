@@ -2191,9 +2191,9 @@ section {
 }
 
 // test fix
-.hero__inner {
-  max-height: calc(100dvh - 150px); // Оставляем ~130-150px для следующего блока
-}
+// .hero__inner {
+//   max-height: calc(100dvh - 150px); // Оставляем ~130-150px для следующего блока
+// }
 .hero__feature {
   min-height: auto;
   height: auto;
