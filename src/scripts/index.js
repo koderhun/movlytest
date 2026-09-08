@@ -22,7 +22,9 @@ $(() => {
     // Пробуем забрать client_id синхронно, если Метрика уже загружена
     try {
       if (typeof ym !== 'undefined' && ym) {
-        ym(YANDEX_COUNTER_ID, 'getClientID', (id) => { clientId = id || '' })
+        ym(YANDEX_COUNTER_ID, 'getClientID', (id) => {
+          clientId = id || ''
+        })
       }
     } catch (e) {}
 
@@ -39,7 +41,7 @@ $(() => {
       screen_resolution: `${window.screen.width}x${window.screen.height}`,
       language: navigator.language || '',
       direction: direction,
-      timestamp: new Date().toISOString()
+      timestamp: new Date().toISOString(),
     }
   }
 
@@ -52,7 +54,7 @@ $(() => {
         if (typeof ym !== 'undefined' && ym) {
           ym(YANDEX_COUNTER_ID, 'getClientID', (clientId) => {
             if (clientId) {
-              cachedTrackingMetadata = { client_id: clientId }
+              cachedTrackingMetadata = {client_id: clientId}
             }
           })
         }
@@ -72,65 +74,71 @@ $(() => {
       }
     }, 0)
   }
-  
+
   /**
    * Initialize CTA button tracking
    */
   function initCtaTracking() {
     // Track all CTA buttons
     const ctaButtons = document.querySelectorAll(
-      '.btn--primary, .btn--secondary, .btn--outline, [href*="#feedback"], a[href*="contact"], button[type="submit"]'
+      '.btn--primary, .btn--secondary, .btn--outline, [href*="#feedback"], a[href*="contact"], button[type="submit"]',
     )
 
     ctaButtons.forEach((button) => {
       button.addEventListener('click', () => {
-        const location = button.id || button.className.split(' ')[0] || button.textContent.trim().substring(0, 30) || 'unknown'
-        trackYandexEvent('cta_click', { location })
+        const location =
+          button.id ||
+          button.className.split(' ')[0] ||
+          button.textContent.trim().substring(0, 30) ||
+          'unknown'
+        trackYandexEvent('cta_click', {location})
       })
     })
 
     // Track Telegram link clicks
-    const telegramLinks = document.querySelectorAll('a[href*="t.me"], a[href*="telegram"]')
+    const telegramLinks = document.querySelectorAll(
+      'a[href*="t.me"], a[href*="telegram"]',
+    )
     telegramLinks.forEach((link) => {
       link.addEventListener('click', () => {
         trackYandexEvent('telegram_click')
       })
     })
   }
-  
+
   /**
    * Initialize form tracking
    */
   function initFormTracking() {
     const forms = document.querySelectorAll('form')
-    
+
     forms.forEach((form) => {
       // Track form start (first interaction)
       let formStarted = false
       const formInputs = form.querySelectorAll('input, textarea, select')
-      
+
       formInputs.forEach((input) => {
         input.addEventListener('focus', () => {
           if (!formStarted) {
             formStarted = true
-            trackYandexEvent('form_start', { form_id: form.id || 'unknown' })
+            trackYandexEvent('form_start', {form_id: form.id || 'unknown'})
           }
         })
       })
     })
   }
-  
+
   /**
    * Initialize all Yandex Metrika tracking
    */
   function initYandexTracking() {
     // Start pre-fetching metadata in background
     prefetchTrackingMetadata()
-    
+
     // Initialize tracking components
     initCtaTracking()
     initFormTracking()
-    
+
     // Track page view (non-blocking)
     setTimeout(() => {
       if (typeof ym !== 'undefined' && ym) {
@@ -177,7 +185,7 @@ $(() => {
       centeredSlides: true, // центральный слайд активный
       initialSlide: 2, // стартуем с центра
       spaceBetween: 8,
-      speed: 600,
+      speed: 400,
       loop: true, // бесконечный
       loopedSlides: 10, // рекомендуется для 5 видимых слайдов
       autoplay: {
@@ -376,29 +384,30 @@ $(() => {
     const agreementInput = document.querySelector('input[name="agreement"]')
     const submitButton = document.querySelector('.form__submit')
     const activeContact = document.querySelector(
-        'input[name="contact-type"]:checked',
+      'input[name="contact-type"]:checked',
     )
 
     if (
-        !nameInput ||
-        !phoneInput ||
-        !telegramInput ||
-        !agreementInput ||
-        !submitButton ||
-        !activeContact
+      !nameInput ||
+      !phoneInput ||
+      !telegramInput ||
+      !agreementInput ||
+      !submitButton ||
+      !activeContact
     ) {
       return
     }
 
     const nameFilled = nameInput.value.trim().length > 0
     const phoneFilled =
-        activeContact.value === 'phone' && isPhoneFilled(phoneInput.value.trim())
+      activeContact.value === 'phone' && isPhoneFilled(phoneInput.value.trim())
     const telegramFilled =
-        activeContact.value === 'telegram' &&
-        telegramInput.value.trim().length > 0
+      activeContact.value === 'telegram' &&
+      telegramInput.value.trim().length > 0
     const agreementChecked = agreementInput.checked
 
-    const isValid = nameFilled && (phoneFilled || telegramFilled) && agreementChecked
+    const isValid =
+      nameFilled && (phoneFilled || telegramFilled) && agreementChecked
 
     // Просто меняем состояние кнопки без вызова сторонних метрик
     submitButton.disabled = !isValid
@@ -499,7 +508,9 @@ $(() => {
       submitButton.disabled = true
 
       const apiUrl = 'SendRequest.php'
-      const activeContact = document.querySelector('input[name="contact-type"]:checked')
+      const activeContact = document.querySelector(
+        'input[name="contact-type"]:checked',
+      )
 
       // Мгновенный сбор данных без ожидания промисов
       const trackingMetadata = getTrackingMetadataSync()
@@ -510,7 +521,7 @@ $(() => {
         phone: phoneInput?.value.trim(),
         telegram: telegramInput?.value.trim(),
         agreement: agreementInput?.checked,
-        ...trackingMetadata
+        ...trackingMetadata,
       }
 
       try {
@@ -528,19 +539,18 @@ $(() => {
 
         trackYandexEvent('form_success', {
           form_id: formElement.id || 'unknown',
-          ...trackingMetadata
+          ...trackingMetadata,
         })
 
         openModal()
         formElement.reset()
         setContactMode('telegram')
         validateForm()
-
       } catch (error) {
         console.error('Ошибка отправки формы:', error)
         trackYandexEvent('form_error', {
           form_id: formElement.id || 'unknown',
-          error: error.message
+          error: error.message,
         })
         alert('Не удалось отправить заявку. Попробуйте позже.')
       } finally {
@@ -586,11 +596,8 @@ $(() => {
         })
       }),
     )
-
-    // Использование
-    preloadBanerBackgrounds()
   }
-  
+
   // Initialize Yandex Metrika tracking (non-blocking)
   initYandexTracking()
 })
