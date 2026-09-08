@@ -1,6 +1,144 @@
 $(() => {
   'use strict'
 
+  // Yandex Metrika Helper Functions
+  const YANDEX_COUNTER_ID = 111556232
+
+  let cachedTrackingMetadata = null
+
+  /**
+   * Синхронный сбор доступных метрик (работает мгновенно, без асинхронных таймаутов)
+   */
+  function getTrackingMetadataSync() {
+    const urlParams = new URLSearchParams(window.location.search)
+    const path = window.location.pathname
+
+    let direction = 'general'
+    if (path.includes('/eu')) direction = 'europe'
+    else if (path.includes('/us')) direction = 'usa'
+    else if (path.includes('/uk')) direction = 'uk'
+
+    let clientId = ''
+    // Пробуем забрать client_id синхронно, если Метрика уже загружена
+    try {
+      if (typeof ym !== 'undefined' && ym) {
+        ym(YANDEX_COUNTER_ID, 'getClientID', (id) => { clientId = id || '' })
+      }
+    } catch (e) {}
+
+    return {
+      client_id: cachedTrackingMetadata?.client_id || clientId || '',
+      utm_source: urlParams.get('utm_source') || '',
+      utm_medium: urlParams.get('utm_medium') || '',
+      utm_campaign: urlParams.get('utm_campaign') || '',
+      utm_content: urlParams.get('utm_content') || '',
+      utm_term: urlParams.get('utm_term') || '',
+      landing_page: window.location.href,
+      referrer: document.referrer || '',
+      user_agent: navigator.userAgent,
+      screen_resolution: `${window.screen.width}x${window.screen.height}`,
+      language: navigator.language || '',
+      direction: direction,
+      timestamp: new Date().toISOString()
+    }
+  }
+
+  /**
+   * Фоновое получение ClientID без блокировки потоков
+   */
+  function prefetchTrackingMetadata() {
+    setTimeout(() => {
+      try {
+        if (typeof ym !== 'undefined' && ym) {
+          ym(YANDEX_COUNTER_ID, 'getClientID', (clientId) => {
+            if (clientId) {
+              cachedTrackingMetadata = { client_id: clientId }
+            }
+          })
+        }
+      } catch (e) {}
+    }, 500)
+  }
+
+  function trackYandexEvent(eventName, params = {}) {
+    // Выполняем асинхронно в следующем тике Event Loop
+    setTimeout(() => {
+      try {
+        if (typeof window.ym === 'function') {
+          window.ym(YANDEX_COUNTER_ID, 'reachGoal', eventName, params)
+        }
+      } catch (e) {
+        console.warn('Yandex Metrika tracking error:', e)
+      }
+    }, 0)
+  }
+  
+  /**
+   * Initialize CTA button tracking
+   */
+  function initCtaTracking() {
+    // Track all CTA buttons
+    const ctaButtons = document.querySelectorAll(
+      '.btn--primary, .btn--secondary, .btn--outline, [href*="#feedback"], a[href*="contact"], button[type="submit"]'
+    )
+
+    ctaButtons.forEach((button) => {
+      button.addEventListener('click', () => {
+        const location = button.id || button.className.split(' ')[0] || button.textContent.trim().substring(0, 30) || 'unknown'
+        trackYandexEvent('cta_click', { location })
+      })
+    })
+
+    // Track Telegram link clicks
+    const telegramLinks = document.querySelectorAll('a[href*="t.me"], a[href*="telegram"]')
+    telegramLinks.forEach((link) => {
+      link.addEventListener('click', () => {
+        trackYandexEvent('telegram_click')
+      })
+    })
+  }
+  
+  /**
+   * Initialize form tracking
+   */
+  function initFormTracking() {
+    const forms = document.querySelectorAll('form')
+    
+    forms.forEach((form) => {
+      // Track form start (first interaction)
+      let formStarted = false
+      const formInputs = form.querySelectorAll('input, textarea, select')
+      
+      formInputs.forEach((input) => {
+        input.addEventListener('focus', () => {
+          if (!formStarted) {
+            formStarted = true
+            trackYandexEvent('form_start', { form_id: form.id || 'unknown' })
+          }
+        })
+      })
+    })
+  }
+  
+  /**
+   * Initialize all Yandex Metrika tracking
+   */
+  function initYandexTracking() {
+    // Start pre-fetching metadata in background
+    prefetchTrackingMetadata()
+    
+    // Initialize tracking components
+    initCtaTracking()
+    initFormTracking()
+    
+    // Track page view (non-blocking)
+    setTimeout(() => {
+      if (typeof ym !== 'undefined' && ym) {
+        ym(YANDEX_COUNTER_ID, 'hit', window.location.href)
+      }
+    }, 0)
+  }
+
   function initSwiper() {
     // Функция обновления data-атрибута на body
     function updateBodyIndex(swiperInstance) {
@@ -238,33 +376,32 @@ $(() => {
     const agreementInput = document.querySelector('input[name="agreement"]')
     const submitButton = document.querySelector('.form__submit')
     const activeContact = document.querySelector(
-      'input[name="contact-type"]:checked',
+        'input[name="contact-type"]:checked',
     )
 
     if (
-      !nameInput ||
-      !phoneInput ||
-      !telegramInput ||
-      !agreementInput ||
-      !submitButton ||
-      !activeContact
+        !nameInput ||
+        !phoneInput ||
+        !telegramInput ||
+        !agreementInput ||
+        !submitButton ||
+        !activeContact
     ) {
       return
     }
 
     const nameFilled = nameInput.value.trim().length > 0
     const phoneFilled =
-      activeContact.value === 'phone' && isPhoneFilled(phoneInput.value.trim())
+        activeContact.value === 'phone' && isPhoneFilled(phoneInput.value.trim())
     const telegramFilled =
-      activeContact.value === 'telegram' &&
-      telegramInput.value.trim().length > 0
+        activeContact.value === 'telegram' &&
+        telegramInput.value.trim().length > 0
     const agreementChecked = agreementInput.checked
 
-    submitButton.disabled = !(
-      nameFilled &&
-      (phoneFilled || telegramFilled) &&
-      agreementChecked
-    )
+    const isValid = nameFilled && (phoneFilled || telegramFilled) && agreementChecked
+
+    // Просто меняем состояние кнопки без вызова сторонних метрик
+    submitButton.disabled = !isValid
   }
 
   const contactRadios = document.querySelectorAll('input[name="contact-type"]')
@@ -350,8 +487,6 @@ $(() => {
 
   // start form validation
   if (formElement) {
-    // const feedbackSection = document.getElementById('feedback')
-
     formElement.addEventListener('submit', async (event) => {
       event.preventDefault()
 
@@ -360,16 +495,22 @@ $(() => {
         return
       }
 
+      // Запрещаем повторный клик на время отправки
+      submitButton.disabled = true
+
       const apiUrl = 'SendRequest.php'
-      const activeContact = document.querySelector(
-        'input[name="contact-type"]:checked',
-      )
+      const activeContact = document.querySelector('input[name="contact-type"]:checked')
+
+      // Мгновенный сбор данных без ожидания промисов
+      const trackingMetadata = getTrackingMetadataSync()
+
       const payload = {
         name: nameInput?.value.trim(),
         contactType: activeContact?.value || null,
         phone: phoneInput?.value.trim(),
         telegram: telegramInput?.value.trim(),
         agreement: agreementInput?.checked,
+        ...trackingMetadata
       }
 
       try {
@@ -385,19 +526,25 @@ $(() => {
           throw new Error('Ошибка запроса')
         }
 
+        trackYandexEvent('form_success', {
+          form_id: formElement.id || 'unknown',
+          ...trackingMetadata
+        })
+
         openModal()
         formElement.reset()
         setContactMode('telegram')
-
-        // feedbackSection.scrollIntoView({
-        //   behavior: 'smooth',
-        //   block: 'start',
-        // })
-
         validateForm()
+
       } catch (error) {
-        console.error('Ошибка отправки формы', error)
+        console.error('Ошибка отправки формы:', error)
+        trackYandexEvent('form_error', {
+          form_id: formElement.id || 'unknown',
+          error: error.message
+        })
         alert('Не удалось отправить заявку. Попробуйте позже.')
+      } finally {
+        submitButton.disabled = false
       }
 
       return false
@@ -443,4 +590,7 @@ $(() => {
     // Использование
     preloadBanerBackgrounds()
   }
+  
+  // Initialize Yandex Metrika tracking (non-blocking)
+  initYandexTracking()
 })
