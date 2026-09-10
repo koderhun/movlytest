@@ -372,6 +372,11 @@ $(() => {
     telegramRadio.checked = !phoneActive
   }
 
+  function setInvalid(el, invalid) {
+    if (!el) return
+    el.classList.toggle('is-invalid', invalid)
+  }
+
   function validateForm() {
     const nameInput = document.getElementById('name')
     const phoneInput = document.getElementById('phone')
@@ -404,13 +409,31 @@ $(() => {
     const isValid =
       nameFilled && (phoneFilled || telegramFilled) && agreementChecked
 
+    if (formTouched) {
+      setInvalid(nameInput, !nameFilled)
+      setInvalid(agreementInput, !agreementChecked)
+
+      if (activeContact.value === 'phone') {
+        setInvalid(phoneInput, !phoneFilled)
+        setInvalid(telegramInput, false)
+      } else {
+        setInvalid(telegramInput, !telegramFilled)
+        setInvalid(phoneInput, false)
+      }
+    }
+
     submitButton.disabled = !isValid
+  }
+
+  function touchAndValidate() {
+    formTouched = true
+    validateForm()
   }
 
   const contactRadios = document.querySelectorAll('input[name="contact-type"]')
   contactRadios.forEach((radio) => {
     radio.addEventListener('change', () => {
-      validateForm()
+      touchAndValidate()
     })
   })
 
@@ -420,21 +443,20 @@ $(() => {
   const agreementInput = document.querySelector('input[name="agreement"]')
 
   phoneInput.addEventListener('focus', () => {
-    console.log('checkPhone clicked')
     setContactMode('phone')
-    validateForm()
+    touchAndValidate()
   })
 
   telegramInput.addEventListener('focus', () => {
     setContactMode('telegram')
-    validateForm()
+    touchAndValidate()
   })
 
   if (phoneInput) {
     phoneInput.addEventListener('input', () => {
       const formatted = formatPhoneValue(phoneInput.value)
       phoneInput.value = formatted
-      validateForm()
+      touchAndValidate()
     })
   }
 
@@ -447,20 +469,21 @@ $(() => {
       if (telegramInput.value !== v) {
         telegramInput.value = v
       }
-      validateForm()
+      touchAndValidate()
     })
   }
 
   if (nameInput) {
-    nameInput.addEventListener('input', validateForm)
+    nameInput.addEventListener('input', touchAndValidate)
   }
 
   if (agreementInput) {
-    agreementInput.addEventListener('change', validateForm)
+    agreementInput.addEventListener('change', touchAndValidate)
   }
 
   const successModal = document.getElementById('formSuccessModal')
   const formElement = document.querySelector('.form')
+  let formTouched = false
 
   function openModal() {
     if (!successModal) {
@@ -557,6 +580,10 @@ $(() => {
 
         openModal()
         formElement.reset()
+        formElement.querySelectorAll('.is-invalid').forEach((el) => {
+          el.classList.remove('is-invalid')
+        })
+        formTouched = false
         setContactMode('telegram')
         validateForm()
       } catch (error) {
