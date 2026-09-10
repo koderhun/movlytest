@@ -319,6 +319,10 @@ $img: '../images/';
 }
 
 @media (max-width: 768px) {
+  section {
+    scroll-margin-top: 1vh;
+  }
+
   .page-scrolled > main {
     padding-top: 144px;
   }
@@ -948,6 +952,7 @@ $img: '../images/';
     height: 64px;
     font-size: 16px;
     padding: 12px 32px;
+    padding-top: 10px;
   }
 
   .form__checkbox-text {
@@ -1316,6 +1321,10 @@ $img: '../images/';
   .footer__nav {
     gap: 32px;
   }
+
+  .form__input-prefix {
+    top: 55%;
+  }
 }
 // эти стили уже не затрагивают макет. И сделаны визуал для малых экранов от 360 до 410
 @media (max-width: 410px) {
@@ -1406,9 +1415,5 @@ $img: '../images/';
   .clients .container {
     padding-left: 16px;
     padding-right: 16px;
-  }
-
-  .form__input-prefix {
-    top: 55%;
   }
 }
