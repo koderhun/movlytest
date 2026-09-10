@@ -357,12 +357,19 @@ $(() => {
     return /^\+7\s\d{3}\s\d{3}\s\d{2}\s\d{2}$/.test(value)
   }
 
+  function isTelegramFilled(value) {
+    return /^[a-zA-Z][a-zA-Z0-9_]{4,31}$/.test(value.trim())
+  }
+
   function setContactMode(mode) {
-    if (mode === 'telegram') {
-      document.getElementById('checkTelegram').checked = true
-    } else {
-      document.getElementById('checkPhone').checked = true
-    }
+    const phoneRadio = document.getElementById('checkPhone')
+    const telegramRadio = document.getElementById('checkTelegram')
+
+    if (!phoneRadio || !telegramRadio) return
+
+    const phoneActive = mode === 'phone'
+    phoneRadio.checked = phoneActive
+    telegramRadio.checked = !phoneActive
   }
 
   function validateForm() {
@@ -391,13 +398,12 @@ $(() => {
       activeContact.value === 'phone' && isPhoneFilled(phoneInput.value.trim())
     const telegramFilled =
       activeContact.value === 'telegram' &&
-      telegramInput.value.trim().length > 0
+      isTelegramFilled(telegramInput.value)
     const agreementChecked = agreementInput.checked
 
     const isValid =
       nameFilled && (phoneFilled || telegramFilled) && agreementChecked
 
-    // Просто меняем состояние кнопки без вызова сторонних метрик
     submitButton.disabled = !isValid
   }
 
@@ -433,7 +439,16 @@ $(() => {
   }
 
   if (telegramInput) {
-    telegramInput.addEventListener('input', validateForm)
+    telegramInput.addEventListener('input', () => {
+      let v = telegramInput.value.replace(/^@/, '')
+      v = v.replace(/[^a-zA-Z0-9_]/g, '')
+      v = v.replace(/^[^a-zA-Z]+/, '')
+      v = v.slice(0, 32)
+      if (telegramInput.value !== v) {
+        telegramInput.value = v
+      }
+      validateForm()
+    })
   }
 
   if (nameInput) {
