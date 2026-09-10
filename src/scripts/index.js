@@ -358,22 +358,10 @@ $(() => {
   }
 
   function setContactMode(mode) {
-    const phoneInput = document.getElementById('phone')
-    const telegramInput = document.getElementById('telegram')
-    if (!phoneInput || !telegramInput) {
-      return
-    }
-
-    const phoneActive = mode === 'phone'
-    phoneInput.disabled = !phoneActive
-    telegramInput.disabled = phoneActive
-    phoneInput.required = phoneActive
-    telegramInput.required = !phoneActive
-
-    if (!phoneActive) {
-      phoneInput.value = ''
+    if (mode === 'telegram') {
+      document.getElementById('checkTelegram').checked = true
     } else {
-      telegramInput.value = ''
+      document.getElementById('checkPhone').checked = true
     }
   }
 
@@ -416,7 +404,6 @@ $(() => {
   const contactRadios = document.querySelectorAll('input[name="contact-type"]')
   contactRadios.forEach((radio) => {
     radio.addEventListener('change', () => {
-      setContactMode(radio.value)
       validateForm()
     })
   })
@@ -425,6 +412,17 @@ $(() => {
   const telegramInput = document.getElementById('telegram')
   const nameInput = document.getElementById('name')
   const agreementInput = document.querySelector('input[name="agreement"]')
+
+  phoneInput.addEventListener('focus', () => {
+    console.log('checkPhone clicked')
+    setContactMode('phone')
+    validateForm()
+  })
+
+  telegramInput.addEventListener('focus', () => {
+    setContactMode('telegram')
+    validateForm()
+  })
 
   if (phoneInput) {
     phoneInput.addEventListener('input', () => {
