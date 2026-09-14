@@ -1,85 +1,39 @@
 'use strict'
 
-import {paths} from '../gulpfile.babel'
 import gulp from 'gulp'
-import realFavicon from 'gulp-real-favicon'
-import fs from 'fs'
-const FAVICON_DATA_FILE = paths.favicons.data
+import favicons from 'gulp-favicons'
+import {paths} from '../gulpfile.babel.js'
 
-gulp.task('favicons-img', (done) => {
-  realFavicon.generateFavicon(
-    {
-      masterPicture: paths.favicons.src,
-      dest: paths.favicons.dist,
-      iconsPath: paths.favicons.forHtmlPath,
-      design: {
-        ios: {
-          pictureAspect: 'noChange',
-          assets: {
-            ios6AndPriorIcons: false,
-            ios7AndLaterIcons: false,
-            precomposedIcons: false,
-            declareOnlyDefaultIcon: true,
-          },
-        },
-        desktopBrowser: {},
-        windows: {
-          pictureAspect: 'noChange',
-          backgroundColor: '#da532c',
-          onConflict: 'override',
-          assets: {
-            windows80Ie10Tile: false,
-            windows10Ie11EdgeTiles: {
-              small: false,
-              medium: true,
-              big: false,
-              rectangle: false,
-            },
-          },
-        },
-        androidChrome: {
-          pictureAspect: 'noChange',
-          themeColor: '#ffffff',
-          manifest: false,
-          assets: {
-            legacyIcon: false,
-            lowResolutionIcons: false,
-          },
-        },
-      },
-      settings: {
-        scalingAlgorithm: 'Mitchell',
-        errorOnImageTooSmall: false,
-        readmeFile: false,
-        htmlCodeFile: false,
-        usePathAsIs: false,
-      },
-      markupFile: FAVICON_DATA_FILE,
-    },
-    function () {
-      done()
-    },
-  )
-})
+const faviconConfig = {
+  appName: 'My App',
+  appShortName: 'App',
+  appDescription: 'My application',
 
-gulp.task('copy-webmanifest', function () {
-  return gulp
-    .src(paths.favicons.srcFolder + 'site.webmanifest')
-    .pipe(gulp.dest(paths.favicons.dist))
-})
+  background: '#ffffff',
+  theme_color: '#ffffff',
 
-gulp.task('inject-favicon', function () {
-  return gulp
-    .src(paths.views.dist + '*.html')
-    .pipe(
-      realFavicon.injectFaviconMarkups(
-        JSON.parse(fs.readFileSync(FAVICON_DATA_FILE)).favicon.html_code,
-      ),
-    )
-    .pipe(gulp.dest(paths.views.dist))
-})
+  icons: {
+    favicons: true,
+    appleIcon: true,
 
-gulp.task(
-  'favicons',
-  gulp.series('favicons-img', 'copy-webmanifest', 'inject-favicon'),
+    appleStartup: false,
+    android: false,
+    windows: false,
+    yandex: false,
+  },
+}
+
+gulp.task('favicons-img', () =>
+  gulp
+    .src(paths.favicons.src)
+    .pipe(favicons(faviconConfig))
+    .pipe(gulp.dest(paths.favicons.dist)),
 )
+
+gulp.task('favicon-svg', () =>
+  gulp
+    .src('./src/assets/images/favicon.svg')
+    .pipe(gulp.dest(paths.favicons.dist)),
+)
+
+gulp.task('favicons', gulp.parallel('favicons-img', 'favicon-svg'))
