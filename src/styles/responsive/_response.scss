@@ -320,7 +320,15 @@ $img: '../images/';
 
 @media (max-width: 768px) {
   section {
-    scroll-margin-top: 1vh;
+    scroll-margin-top: 0px;
+  }
+
+  .page-scrolled section {
+    scroll-margin-top: 56px;
+  }
+
+  .home-page section {
+    scroll-margin-top: 10px;
   }
 
   .page-scrolled > main {
@@ -952,6 +960,7 @@ $img: '../images/';
     height: 64px;
     font-size: 16px;
     padding: 12px 32px;
+    padding-left: 38px;
     padding-top: 10px;
   }
 
