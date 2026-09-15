@@ -253,14 +253,13 @@ $(() => {
 
   // не показываем фиксированное меню на главной
 
-  const isHomePage =
-    window.location.pathname === '/' || window.location.pathname === ''
-  console.log('isHomePage:', isHomePage)
+  const isHomePage = document.body.classList.contains('home-page')
 
   const header = document.querySelector('.header')
 
   const body = document.querySelector('body')
 
+  // if not home page
   if (!isHomePage && header) {
     let lastScrollY = window.scrollY
     let ticking = false
