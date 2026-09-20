@@ -148,50 +148,55 @@ $(() => {
   }
 
   function initSwiper() {
-    // Функция обновления data-атрибута на body
+    const banerContainer = document.querySelector('.baner__container')
+    let currentSlideIndex = null
+
     function updateBodyIndex(swiperInstance) {
-      // Получаем активный слайд
       const activeSlide = swiperInstance.slides[swiperInstance.activeIndex]
+      if (!activeSlide || !banerContainer) return
 
-      const $banerContainer = document.querySelector('.baner__container')
+      const dataIndex = activeSlide.getAttribute('data-index')
+      if (dataIndex === null || dataIndex === currentSlideIndex) return
 
-      if (activeSlide) {
-        // Читаем data-index из активного слайда
-        const dataIndex = activeSlide.getAttribute('data-index')
+      currentSlideIndex = dataIndex
+      banerContainer.setAttribute('data-active-slide', dataIndex)
 
-        if (dataIndex !== null) {
-          // Записываем в body
-          $banerContainer.setAttribute('data-active-slide', dataIndex)
+      // Убираем старые классы slide-* корректно (через массив, а не live-коллекцию)
+      const toRemove = []
+      banerContainer.classList.forEach((cls) => {
+        if (cls.startsWith('slide-')) toRemove.push(cls)
+      })
+      toRemove.forEach((cls) => banerContainer.classList.remove(cls))
 
-          // Также можно добавить класс для стилизации
-          // Удаляем старые классы
-          $banerContainer.classList.forEach((className) => {
-            if (className.startsWith('slide-')) {
-              $banerContainer.classList.remove(className)
-            }
-          })
-
-          // Добавляем новый класс
-          // Use requestAnimationFrame for smoother updates on WebKit
-          requestAnimationFrame(() => {
-            $banerContainer.classList.add(`slide-${dataIndex}`)
-          })
-        }
-      }
+      // Добавляем класс синхронно — без rAF, чтобы не ловить reflow во время анимации
+      banerContainer.classList.add(`slide-${dataIndex}`)
     }
+
+    // Считаем реальное количество слайдов
+    const totalSlides = document.querySelectorAll(
+      '.slider-section__container .swiper-slide',
+    ).length
 
     const swiper = new Swiper('.slider-section__container', {
       slidesPerView: 5,
-      centeredSlides: true, // центральный слайд активный
-      initialSlide: 2, // стартуем с центра
+      centeredSlides: true,
+      initialSlide: 2,
       spaceBetween: 8,
       speed: 400,
-      loop: true, // бесконечный
-      loopedSlides: 10, // рекомендуется для 5 видимых слайдов
+      loop: true,
+      // Ключевое: loopedSlides должно быть >= slidesPerView * 2,
+      // но не больше реального числа слайдов (иначе Swiper ломается)
+      loopedSlides: Math.max(10, totalSlides),
+
+      // Убираем рывок при loop-fix
+      loopAdditionalSlides: 2,
+      watchSlidesProgress: true,
+      watchOverflow: true,
+
       autoplay: {
-        delay: 4000, // задержка между слайдами в мс
-        disableOnInteraction: false, // не останавливать после ручного переключения
-        pauseOnMouseEnter: true, // пауза при наведении мыши (опционально)
+        delay: 4000,
+        disableOnInteraction: false,
+        pauseOnMouseEnter: true,
       },
 
       navigation: {
@@ -200,43 +205,25 @@ $(() => {
       },
 
       breakpoints: {
-        320: {
-          slidesPerView: 1.4,
-          centeredSlides: true,
-        },
-        480: {
-          slidesPerView: 2.5,
-          centeredSlides: true,
-        },
-        768: {
-          slidesPerView: 3.5,
-          centeredSlides: true,
-        },
-        1024: {
-          slidesPerView: 5, // строго 5 слайдов
-          centeredSlides: true,
-          spaceBetween: 8,
-        },
+        320: {slidesPerView: 1.4, centeredSlides: true},
+        480: {slidesPerView: 2.5, centeredSlides: true},
+        768: {slidesPerView: 3.5, centeredSlides: true},
+        1024: {slidesPerView: 5, centeredSlides: true, spaceBetween: 8},
       },
 
-      // События
       on: {
         init: function () {
           updateBodyIndex(this)
-          console.log(
-            'Swiper инициализирован, активный слайд:',
-            this.slides[this.activeIndex].getAttribute('data-index'),
-          )
-          // Показать слайдер после инициализации
-          document.querySelector('.slider1').style.display = ''
-          document.querySelector('.baner__btnblock').style.paddingBottom = '0'
+          const slider = document.querySelector('.slider1')
+          const btnblock = document.querySelector('.baner__btnblock')
+          if (slider) slider.style.display = ''
+          if (btnblock) btnblock.style.paddingBottom = '0'
         },
+        // Только один обработчик — убираем дублирование
         slideChange: function () {
           updateBodyIndex(this)
         },
-        slideChangeTransitionEnd: function () {
-          updateBodyIndex(this)
-        },
+        // slideChangeTransitionEnd убран — он и давал дёрганье
       },
     })
 
